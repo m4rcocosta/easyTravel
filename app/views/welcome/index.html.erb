@@ -1,10 +1,57 @@
-<nav>
-    <div class="nav-wrapper">
-      <%= image_tag("logo.jpg", size: "150x60",:alt => "LOGO") %>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn">Home</a></li>
-        <li><a href="#">Accedi</a></li>
-        <li><a href="#">Registrati</a></li>
-      </ul>
-    </div>
-  </nav>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EasyTravel</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <nav>
+        <div class="nav-wrapper">
+            <%= image_tag("logo.jpg", class:"logo", :alt => "LOGO") %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
+                <li id="vb"><a class="btn" href="#">Accedi</a></li>
+                <li id="vb"><a class="btn" href="#">Registrati</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <body>
+        <div class="clear"></div>
+
+        <div class="left_alignment">
+            <label>Città di partenza</label>
+            <select class="browser-default">
+                <option value="" disabled selected>Seleziona la città di partenza</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <label>Città di arrivo</label>
+            <select class="browser-default">
+                <option value="" disabled selected>Seleziona la città di arrivo</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <div class="left_alignment">
+            <form action="#"  class="calendar_style">
+                Andata: <input type="date" name="andata">
+                <p>
+                    <label>
+                        <input type="checkbox" id="check" OnClick="abilitaRitorno(this);" />
+                        <span>Ritorno:</span> <input type="date" id="ritorno" disabled="true">
+                    </label>
+                </p>
+            </form>
+        </div>
+        <div style="clear:both;"></div>
+        <div id ="button_div">
+            <a class="waves-effect waves-red btn-large" href="#">Ricerca</a>
+        <div>
+        <div style="clear:both;"></div>
+    </body>
