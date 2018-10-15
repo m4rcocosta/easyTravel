@@ -1,0 +1,17 @@
+<nav>
+    <div class="nav-wrapper">
+        <%= image_tag("logo.jpg", class:"logo", :alt => "LOGO") %>
+
+        <% if current_user %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
+            <li id="vb"><%= link_to 'Esci', destroy_user_session_path, method: :delete, class: 'btn' %></li>
+        </ul>
+
+        <% else %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
+            <li id="vb"><%= link_to 'Accedi', new_user_session_path, class: 'btn' %></li>
+            <li id="vb"><%= link_to 'Registrati', new_user_registration_path, class: 'btn' %></li>
+        </ul>
+        <% end %>
+    </div>
+</nav>
