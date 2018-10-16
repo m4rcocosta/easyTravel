@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  */
- @import "materialize";
+
+ // Modificare i colori di materialize 
+@import "materialize/components/color-variables";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("red", "base") !default;
+@import 'materialize';
 
 body {
     background-image: url(background.jpg);
@@ -39,6 +44,10 @@ p {
     color: white;
     font-size: 14pt;
     padding-bottom: 10px;
+}
+
+h2 {
+    color: white;
 }
 
 #a {

@@ -16,7 +16,7 @@
 //= require_tree .
 //= require jquery3
 //= require jquery_ujs
-//= materialize-sprockets
+//= materialize
 
 function abilitaRitorno(chkItem) {
     if ($(chkItem).is(":checked"))
