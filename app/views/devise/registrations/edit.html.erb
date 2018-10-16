@@ -1,3 +1,5 @@
+<div class="devise_format"> 
+
 <h2>Modifica <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -32,7 +34,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Aggiorna" %>
+    <%= f.submit "Aggiorna", class: 'waves-effect waves-light btn' %>
   </div>
 <% end %>
 
@@ -40,4 +42,6 @@
 
 <p>Vuoi calcellare l'account? <%= button_to "Cancella il mio account", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %></p>
 
-<%= link_to "Indietro", :back %>
+<%= link_to "Indietro", :back, class: 'waves-effect waves-light btn' %>
+
+</div>

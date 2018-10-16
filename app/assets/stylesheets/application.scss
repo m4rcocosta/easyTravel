@@ -46,8 +46,18 @@ p {
     padding-bottom: 10px;
 }
 
-h2 {
+.btn {
+    color: black;
+}
+
+.btn :hover {
     color: white;
+}
+
+.devise_format {
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #a {
