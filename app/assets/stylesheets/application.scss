@@ -19,6 +19,8 @@
 $primary-color: color("blue", "lighten-2") !default;
 $secondary-color: color("yellow", "base") !default;
 @import 'materialize';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
 
 html, body {
     background-image: url(background.jpg);
@@ -83,6 +85,12 @@ p {
     height: 100%;
 }
 
+.oauthlogo {
+    border-radius: 5%;
+    height: 50px;
+    width: 200px;
+}
+
 .footer-copyright {
     height: 100%;
     margin: 0;
@@ -125,4 +133,8 @@ p {
     position: absolute;
     top: 50%;
     right: 0%;;
+}
+
+.dropdown-content {
+    background-color: $primary-color;
 }

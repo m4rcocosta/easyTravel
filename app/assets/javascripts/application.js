@@ -16,7 +16,7 @@
 //= require_tree .
 //= require jquery3
 //= require jquery_ujs
-//= materialize
+//= require materialize
 
 function abilitaRitorno(chkItem) {
     if ($(chkItem).is(":checked"))
@@ -26,6 +26,7 @@ function abilitaRitorno(chkItem) {
 }
 
 $(document).ready(function() {
+    $('.dropdown-trigger').dropdown();
 
     var date = new Date();
 

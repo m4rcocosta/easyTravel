@@ -1,18 +1,29 @@
-<nav>
-    <div class="nav-wrapper">
-        <%= link_to image_tag("logo.jpg", class:"logo", :alt => "LOGO"), root_path %>
 
-        <% if current_user %>
-        <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
-            <li id="vb"><%= link_to current_user.email, edit_user_registration_path, class: 'waves-effect waves-light btn' %></li>
-            <li id="vb"><%= link_to 'Esci', destroy_user_session_path, method: :delete, class: 'waves-effect waves-light btn' %></li>
-        </ul>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to 'Profilo', edit_user_registration_path %></li>
+  <li><a href="#!">Statistiche</a></li>
+  <li class="divider"></li>
+  <li><%= link_to 'Esci', destroy_user_session_path, method: :delete %></li>
+</ul>
 
-        <% else %>
-        <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
-            <li id="vb"><%= link_to 'Accedi', new_user_session_path, class: 'waves-effect waves-light btn' %></li>
-            <li id="vb"><%= link_to 'Registrati', new_user_registration_path, class: 'waves-effect waves-light btn' %></li>
-        </ul>
-        <% end %>
-    </div>
-</nav>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <%= link_to image_tag("logo.jpg", class:"logo", :alt => "LOGO"), root_path %>
+
+            <% if current_user %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
+                <li id="vb"><button class="waves-effect waves-light btn dropdown-trigger" data-target="dropdown1"><%= current_user.email %></button></li>
+            </ul>
+
+            <% else %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
+                <li id="vb"><%= link_to 'Accedi', new_user_session_path, class: 'waves-effect waves-light btn' %></li>
+                <li id="vb"><%= link_to 'Registrati', new_user_registration_path, class: 'waves-effect waves-light btn' %></li>
+            </ul>
+            <% end %>
+        </div>
+    </nav>
+</div>
