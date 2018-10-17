@@ -18,12 +18,18 @@
 
   <div class="field">
     <%= f.label 'Sesso' %><br />
-    <%= f.text_field :sex, autofocus: true %>
+    <label style="float: left;">
+      <%= f.radio_button :sex, 'Male', :checked => true %><span>M</span>
+    </label>
+    <label style="float: left;">
+      <%= f.radio_button :sex, 'Female' %><span>F</span>
+    </label>
+    <div class="clear"></div>
   </div>
 
   <div class="field">
     <%= f.label 'Nato il' %><br />
-    <%= f.date_field :birth, autofocus: true %>
+    <%= f.date_field :birth, autofocus: true, id: "birth" %>
   </div>
 
   <div class="field">

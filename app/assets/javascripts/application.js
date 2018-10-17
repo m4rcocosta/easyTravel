@@ -26,6 +26,7 @@ function abilitaRitorno(chkItem) {
 }
 
 $(document).ready(function() {
+
     var date = new Date();
 
     var day = date.getDate();
@@ -38,4 +39,5 @@ $(document).ready(function() {
     var today = year + "-" + month + "-" + day;       
     $("#andata").attr("value", today);
     $("#ritorno").attr("value", today);
+    $("#birth").attr("value", today);
 });
