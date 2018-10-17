@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-        <%= image_tag("logo.jpg", class:"logo", :alt => "LOGO") %>
+        <%= link_to image_tag("logo.jpg", class:"logo", :alt => "LOGO"), root_path %>
 
         <% if current_user %>
         <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">

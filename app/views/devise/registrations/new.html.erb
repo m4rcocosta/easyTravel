@@ -7,6 +7,26 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label 'Nome' %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Cognome' %><br />
+    <%= f.text_field :surname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Sesso' %><br />
+    <%= f.text_field :sex, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Nato il' %><br />
+    <%= f.date_field :birth, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

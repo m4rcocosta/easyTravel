@@ -10,41 +10,44 @@
     </head>
 
     <body>
-        <div class="clear"></div>
+        <div id="container">
 
-        <div class="left_alignment">
-            <label>Città di partenza</label>
-            <select class="browser-default">
-                <option value="" disabled selected>Seleziona la città di partenza</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
-            <br/><br/>
-            <label>Città di arrivo</label>
-            <select class="browser-default">
-                <option value="" disabled selected>Seleziona la città di arrivo</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
+            <div class="left_alignment">
+                <label>Città di partenza</label>
+                <select class="browser-default">
+                    <option value="" disabled selected>Seleziona la città di partenza</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <br/><br/>
+                <label>Città di arrivo</label>
+                <select class="browser-default">
+                    <option value="" disabled selected>Seleziona la città di arrivo</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+            <div class="left_alignment" style="width: 2%;"></div>
+            <div class="left_alignment">
+                <form action="#"  class="calendar_style">
+                    <label> Andata: </label> 
+                    <input type="date" id="andata"><br/><br/>
+                    <label>
+                        <input type="checkbox" class="filled-in" id="check" OnClick="abilitaRitorno(this);" />
+                        <span id="a">Ritorno:</span> 
+                        <input type="date" id="ritorno" disabled="true">
+                    </label>
+                </form>
+            </div>
+            <div style="clear:both;"></div>
+            <br/>
+            <div id ="button_div">
+                <a class="btn waves-effect waves-light" href="#">Ricerca</a>
+            <div>
+
+            <div style="clear:both;"></div>
+            <br/>
         </div>
-        <div class="left_alignment" style="width: 2%;"></div>
-        <div class="left_alignment">
-            <form action="#"  class="calendar_style">
-                <label> Andata: </label> 
-                <input type="date" id="andata"><br/><br/>
-                <label>
-                    <input type="checkbox" class="filled-in" id="check" OnClick="abilitaRitorno(this);" />
-                    <span id="a">Ritorno:</span> 
-                    <input type="date" id="ritorno" disabled="true">
-                </label>
-            </form>
-        </div>
-        <div style="clear:both;"></div>
-        <br/>
-        <div id ="button_div">
-            <a class="btn waves-effect waves-light" href="#">Ricerca</a>
-        <div>
-        <div style="clear:both;"></div>
     </body>
