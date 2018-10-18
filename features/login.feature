@@ -18,4 +18,4 @@ Scenario: Login failure
   And I fill in "Password" with "RinoGattuso"
   And I press "Login"
   Then I should be on the login page
-  And I should see "Invalid Email or password."
+  And I should see "Email o password errati."
