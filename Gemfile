@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'jquery-rails'
 gem 'devise'
+gem 'figaro'
 gem 'omniauth-google-oauth2'
 
 
