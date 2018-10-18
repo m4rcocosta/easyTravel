@@ -1,0 +1,26 @@
+// Place all the styles related to the Contatti controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "materialize/components/color-variables";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import 'materialize';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+.div_left {
+	float: left;
+	font-size: 20pt;
+}
+
+.div_right {
+	float: left;
+}
+
+.logo_email{
+	height: 50px;
+    width: 100px;
+}
+
+.div_inferiore{
+	font-size: 15pt;
+}
