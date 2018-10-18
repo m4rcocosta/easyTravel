@@ -42,4 +42,19 @@ $(document).ready(function() {
     $("#andata").attr("value", today);
     $("#ritorno").attr("value", today);
     $("#birth").attr("value", today);
+
+    $("#cittaPartenza").on("change", function() {
+        var arrivi = document.getElementById("cittaArrivo");
+        var partenza = document.getElementById("cittaPartenza").value;
+        var arrivo;
+        for (var i = 1; i < arrivi.length; i++) {
+            arrivo = arrivi[i];
+            if(arrivo.value == partenza) arrivo.disabled=true;
+            else arrivo.disabled=false;
+        }
+    });
+
+    $("#cittaArrivo").on("change", function() {
+        alert("Arrivo changed");
+    });
 });
