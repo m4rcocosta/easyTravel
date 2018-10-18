@@ -27,6 +27,7 @@ function abilitaRitorno(chkItem) {
 
 $(document).ready(function() {
     $('.dropdown-trigger').dropdown();
+    $('.tabs').tabs();
 
     var date = new Date();
 
