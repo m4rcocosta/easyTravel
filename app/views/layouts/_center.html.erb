@@ -1,0 +1,27 @@
+<% if current_user %>
+    <div class="row">
+        <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#voli">Voli</a></li>
+            <li class="tab col s3"><a href="#hotel">Hotel</a></li>
+            <li class="tab col s3"><a href="#auto">Auto</a></li>
+        </ul>
+        </div>
+        <div id="voli" class="col s12">
+            <%= render 'layouts/flights' %>
+            <br/>
+        </div>
+        <div id="hotel" class="col s12">
+            <%= render 'layouts/hotels' %>
+            <br/>
+        </div>
+        <div id="auto" class="col s12">
+            <%= render 'layouts/cars' %>
+            <br/>
+        </div>
+    </div>
+
+<% else %>
+    <%= render 'layouts/flights' %>
+    <br/>
+<% end %>

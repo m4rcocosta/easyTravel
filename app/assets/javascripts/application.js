@@ -20,41 +20,12 @@
 
 function abilitaRitorno(chkItem) {
     if ($(chkItem).is(":checked"))
-        $("#ritorno").removeAttr("disabled");
+        $("#dataRitorno").removeAttr("disabled");
     else
-        $("#ritorno").attr("disabled", "true");
+        $("#dataRitorno").attr("disabled", "true");
 }
 
 $(document).ready(function() {
     $('.dropdown-trigger').dropdown();
-    $('.tabs').tabs();
 
-    var date = new Date();
-
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-
-    if (month < 10) month = "0" + month;
-    if (day < 10) day = "0" + day;
-
-    var today = year + "-" + month + "-" + day;       
-    $("#andata").attr("value", today);
-    $("#ritorno").attr("value", today);
-    $("#birth").attr("value", today);
-
-    $("#cittaPartenza").on("change", function() {
-        var arrivi = document.getElementById("cittaArrivo");
-        var partenza = document.getElementById("cittaPartenza").value;
-        var arrivo;
-        for (var i = 1; i < arrivi.length; i++) {
-            arrivo = arrivi[i];
-            if(arrivo.value == partenza) arrivo.disabled=true;
-            else arrivo.disabled=false;
-        }
-    });
-
-    $("#cittaArrivo").on("change", function() {
-        alert("Arrivo changed");
-    });
 });
