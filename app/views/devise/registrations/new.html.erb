@@ -8,25 +8,25 @@
 
   <div class="input-field col s6">
     <i class="material-icons prefix">account_circle</i>
-    <%= f.text_field :name, class: "validate", id: "name_field", autofocus: true %><br />
-    <%= f.label "Nome", for: "name_field" %>
+    <%= f.text_field :first_name, class: "validate", id: "first_name_field"%><br />
+    <%= f.label "Nome", for: "first_name_field" %>
   </div>
 
   <div class="input-field col s6">
     <i class="material-icons prefix">account_circle</i>
-    <%= f.text_field :surname, class: "validate", id: "surname_field", autofocus: true %><br />
-    <%= f.label 'Cognome', for: "surname_field" %>
+    <%= f.text_field :last_name, class: "validate", id: "last_name_field"%><br />
+    <%= f.label 'Cognome', for: "last_name_field" %>
   </div>
 
   <div class="input-field col s6">
-    <%= f.email_field :email, class: "validate", id: "email_field", autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, class: "validate", id: "email_field", autocomplete: "email" %>
     <%= f.label :email, for: "email_field" %><br />
   </div>
 
   <div class="input-field col s6">
     <%= f.password_field :password, class: "validate", id: "password_field", autocomplete: "new-password" %>
     <%= f.label :password, for: "password_field" %><br />
-    <span class="helper-text" data-error="wrong" data-success="right">
+    <span class="helper-text" data-error="Non corretto" data-success="Corretto">
       <% if @minimum_password_length %>
       <em>(Minimo <%= @minimum_password_length %> caratteri)</em>
       <% end %><br />
@@ -43,17 +43,6 @@
     <%= f.text_field :birth, autofocus: true, id: "birth", class: "datepicker" %>
   </div>
 
-  <div class="field">
-    <%= f.label 'Sesso' %><br />
-    <label style="float: left;">
-      <%= f.radio_button :sex, 'Male', :checked => true %><span>M</span>
-    </label>
-    <label style="float: left;">
-      <%= f.radio_button :sex, 'Female' %><span>F</span>
-    </label>
-    <div class="clear"></div>
-  </div>
-
   <div class="actions">
     <%= link_to 'Indietro', root_path, class: 'waves-effect waves-light btn' %>
     <%= f.submit "Registrati", class: 'waves-effect waves-light btn' %>
@@ -61,5 +50,7 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<div class="push-footer"></div>
 
 </div>

@@ -6,9 +6,7 @@
             <option value="none" disabled selected>Seleziona la città di partenza</option>
             <optgroup id = "preferiti" label="Preferiti"></optgroup>
             <optgroup label="Partenze">
-                <option value="rome">Roma</option>
-                <option value="mila">Milano</option>
-                <option value="trn">Torino</option>
+                <%= render 'layouts/airports' %>
             </optgroup>
         </select>
         <br/><br/>
@@ -16,10 +14,8 @@
         <select id="cittaArrivo">
             <option value="none" disabled selected>Seleziona la città di arrivo</option>
             <optgroup id = "preferiti" label="Preferiti"></optgroup>
-            </optgroup label="Arrivi">
-                <option value="rome">Roma</option>
-                <option value="mila">Milano</option>
-                <option value="trn">Torino</option>
+            <optgroup label="Arrivi">
+                <%= render 'layouts/airports' %>
             </optgroup>
         </select>
     </div>
