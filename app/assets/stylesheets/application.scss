@@ -37,6 +37,9 @@ html, body {
     width: 100%;
     margin: 0 auto -50px; 
 }
+h6 {
+    color: white;
+}
 
 .push-footer {
     width: 100%;
@@ -120,7 +123,7 @@ p {
 
 .left_alignment {
     float: left;
-    width: 30%;
+    width: 20%;
     padding-top: 30px;
     padding-left: 20px;
 }
@@ -142,4 +145,15 @@ p {
 
 .dropdown-content {
     background-color: $primary-color;
+}
+
+.btn-floating {
+    float: left;
+}
+
+#passeggeri {
+    float:left;
+    padding: 10px;
+    color:white;
+    font-size: 12pt;
 }

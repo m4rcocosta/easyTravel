@@ -13,6 +13,23 @@ $(document).ready(function() {
         }
     });
 
+    // Gestione passeggeri
+    $("#a-").on("click", function() {
+        var n = document.getElementById("passeggeri");
+        var num_passeggeri = parseInt(n.textContent);
+        if(num_passeggeri != 1) {
+            num_passeggeri--;
+            n.innerText = num_passeggeri;
+        }
+    });
+
+    $("#aadd").on("click", function() {
+        var n = document.getElementById("passeggeri");
+        var num_passeggeri = parseInt(n.textContent);
+        num_passeggeri++;
+        n.innerText = num_passeggeri;
+    });
+
     //Ricerca voli
     $("#ricerca").on("click", function() {
         var cittapartenza = document.getElementById("cittaPartenza").value;
@@ -43,7 +60,8 @@ $(document).ready(function() {
             dataritorno = "";
             rtn = "0";
         }
-        var link = "https://www.skyscanner.it/trasporti/voli/"+cittapartenza+"/"+cittaarrivo+"/"+dataandata+"/"+dataritorno+"?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn="+rtn+"&preferdirects=true&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results"
+        var passeggeri = document.getElementById("passeggeri").textContent;
+        var link = "https://www.skyscanner.it/trasporti/voli/"+cittapartenza+"/"+cittaarrivo+"/"+dataandata+"/"+dataritorno+"?adults="+passeggeri+"&children=0&adultsv2="+passeggeri+"&childrenv2=&infants=0&cabinclass=economy&rtn="+rtn+"&preferdirects=true&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results"
         window.open(link, "_blank");
         window.focus();
     });

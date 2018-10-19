@@ -1,17 +1,17 @@
 
 <div class="devise_format">
   
-  <h2>Accedi</h2>
+  <h2>Accedi</h2><br/>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="input-field col s6">
+      <%= f.email_field :email, class: "validate", id: "email_field", autofocus: true, autocomplete: "email" %>
+      <%= f.label :email, for: "email_field" %><br />
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class="input-field col s6">
+      <%= f.password_field :password, class: "validate", id: "password_field", autocomplete: "new-password" %>
+      <%= f.label :password, for: "password_field" %><br />
     </div>
 
     <% if devise_mapping.rememberable? -%>
