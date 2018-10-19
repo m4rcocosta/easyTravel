@@ -13,14 +13,26 @@ $secondary-color: color("yellow", "base") !default;
 }
 
 .div_right {
-	float: left;
+	float: right;
 }
 
 .logo_email{
-	height: 50px;
-    width: 100px;
+	height: 30px;
+    width: 40px;
 }
 
 .div_inferiore{
 	font-size: 15pt;
+}
+
+.s_image_sx{
+	float: left;
+}
+
+.s_image_dx{
+	float: float;
+}
+
+.s_sx{
+	float:left
 }
