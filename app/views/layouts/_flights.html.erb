@@ -2,19 +2,25 @@
     
     <div class="left_alignment">
         <label>Città di partenza</label>
-        <select id="cittaPartenza" class="browser-default" >
+        <select id="cittaPartenza">
             <option value="none" disabled selected>Seleziona la città di partenza</option>
-            <option value="rome">Roma</option>
-            <option value="mila">Milano</option>
-            <option value="trn">Torino</option>
+            <optgroup id = "preferiti" label="Preferiti"></optgroup>
+            <optgroup label="Partenze">
+                <option value="rome">Roma</option>
+                <option value="mila">Milano</option>
+                <option value="trn">Torino</option>
+            </optgroup>
         </select>
         <br/><br/>
         <label>Città di arrivo</label>
-        <select id="cittaArrivo" class="browser-default">
+        <select id="cittaArrivo">
             <option value="none" disabled selected>Seleziona la città di arrivo</option>
-            <option value="rome">Roma</option>
-            <option value="mila">Milano</option>
-            <option value="trn">Torino</option>
+            <optgroup id = "preferiti" label="Preferiti"></optgroup>
+            </optgroup label="Arrivi">
+                <option value="rome">Roma</option>
+                <option value="mila">Milano</option>
+                <option value="trn">Torino</option>
+            </optgroup>
         </select>
     </div>
 
