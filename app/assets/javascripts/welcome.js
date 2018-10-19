@@ -1,17 +1,4 @@
 $(document).ready(function() {
-    var date = new Date();
-
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-
-    if (month < 10) month = "0" + month;
-    if (day < 10) day = "0" + day;
-
-    var today = year + "-" + month + "-" + day;       
-    $("#dataAndata").attr("value", today);
-    $("#dataRitorno").attr("value", today);
-    $("#birth").attr("value", today);
 
     // Disabilita città selezionata in partenza da arrivo
     $("#cittaPartenza").on("change", function() {
@@ -39,16 +26,16 @@ $(document).ready(function() {
             return false;
         }
         var dataandata = document.getElementById("dataAndata").value;
-        var anno = dataandata.substr(2, 2);
-        var mese = dataandata.substr(5, 2);
-        var giorno = dataandata.substr(8 ,2);
+        var anno = dataandata.substr(8, 2);
+        var mese = dataandata.substr(3, 2);
+        var giorno = dataandata.substr(0 ,2);
         dataandata = anno+mese+giorno;
         var dataritorno, rtn;
         if($("#check").is(":checked")) {
             dataritorno = document.getElementById("dataRitorno").value;
-            anno = dataritorno.substr(2, 2);
-            mese = dataritorno.substr(5, 2);
-            giorno = dataritorno.substr(8 ,2);
+            var anno = dataandata.substr(8, 2);
+            var mese = dataandata.substr(3, 2);
+            var giorno = dataandata.substr(0 ,2);
             dataritorno = anno+mese+giorno+"/";
             rtn = "1";
         }
