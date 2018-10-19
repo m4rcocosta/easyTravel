@@ -1,22 +1,18 @@
 <div id="dinamic_container">
-    
+
     <div class="left_alignment">
         <label>Città di partenza</label>
         <select id="cittaPartenza">
             <option value="none" disabled selected>Seleziona la città di partenza</option>
             <optgroup id = "preferiti" label="Preferiti"></optgroup>
-            <optgroup label="Partenze">
-                <%= render 'layouts/airports' %>
-            </optgroup>
+            <%= render 'layouts/airports' %>
         </select>
         <br/><br/>
         <label>Città di arrivo</label>
         <select id="cittaArrivo">
             <option value="none" disabled selected>Seleziona la città di arrivo</option>
             <optgroup id = "preferiti" label="Preferiti"></optgroup>
-            <optgroup label="Arrivi">
-                <%= render 'layouts/airports' %>
-            </optgroup>
+            <%= render 'layouts/airports' %>
         </select>
     </div>
 
@@ -28,7 +24,7 @@
             <input type="text" id="dataAndata" class="datepicker"><br/><br/>
             <label>
                 <input type="checkbox" class="filled-in" id="check" OnClick="abilitaRitorno(this);" />
-                <span id="a">Ritorno:</span> 
+                <span id="a">Ritorno:</span>
             </label>
             <input type="text" id="dataRitorno" disabled="true" class="datepicker"><br/><br/>
         </form>
