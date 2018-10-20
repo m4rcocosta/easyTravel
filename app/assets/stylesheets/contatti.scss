@@ -7,18 +7,31 @@ $secondary-color: color("yellow", "base") !default;
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
-.div_left {
+.div_superiore {
 	float: left;
 	font-size: 20pt;
+	padding-left: 5px;
 }
 
-.div_right {
-	float: right;
+h1{
+	color: white;
+}
+
+h3 {
+	color: white;
+}
+
+.div_inferiore{
+	padding-bottom: 100px;
 }
 
 .logo_email{
-	height: 30px;
-    width: 40px;
+	height: 20px;
+    width: 30px;
+}
+
+.logo_email:hover{
+	transform: scale(1.5,1.5);
 }
 
 .div_inferiore{
@@ -27,12 +40,21 @@ $secondary-color: color("yellow", "base") !default;
 
 .s_image_sx{
 	float: left;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 
 .s_image_dx{
-	float: float;
+	float: left;
+	padding-left: 10px;
 }
 
-.s_sx{
-	float:left
+.s{
+	float:left;
+	padding-left: 5px;
 }
+
+#accedi {
+	font_size: 10pt;
+}
+
