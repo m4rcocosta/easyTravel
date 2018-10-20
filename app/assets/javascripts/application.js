@@ -24,12 +24,6 @@ function abilitaRitorno() {
     dataritorno.disabled = !ischecked;
 }
 
-function abilitaRiconsegna() {
-    var ischecked = document.getElementById("auto_check").checked;
-    var cittariconsegna = document.getElementById("cittaAutoRiconsegna");
-    cittariconsegna.disabled = !ischecked;
-}
-
 $(document).ready(function() {
     M.updateTextFields();
     $('.dropdown-trigger').dropdown();

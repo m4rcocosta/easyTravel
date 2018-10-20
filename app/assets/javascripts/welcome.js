@@ -1,18 +1,5 @@
 $(document).ready(function() {
 
-    // Disabilita città selezionata in partenza da arrivo
-    $("#cittaPartenza").on("change", function() {
-        var arrivi = document.getElementById("cittaArrivo");
-        var partenza = document.getElementById("cittaPartenza").value;
-        var arrivo;
-        if(partenza == arrivi.value) arrivi.value = arrivi[0].value;
-        for (var i = 1; i < arrivi.length; i++) {
-            arrivo = arrivi[i];
-            if(arrivo.value == partenza) arrivo.disabled=true;
-            else arrivo.disabled=false;
-        }
-    });
-
     // Gestione passeggeri
     $("#a-").on("click", function() {
         var n = document.getElementById("passeggeri");
@@ -58,6 +45,10 @@ $(document).ready(function() {
         var cittaarrivo = document.getElementById("cittaArrivo").value;
         if(cittaarrivo == "none") {
             M.toast({html: "Devi selezionare la città di arrivo!"});
+            return false;
+        }
+        if(cittapartenza == cittaarrivo) {
+            M.toast({html: "La città di arrivo non può essere la sessa!"});
             return false;
         }
         var dataandata = document.getElementById("dataAndata").value;
