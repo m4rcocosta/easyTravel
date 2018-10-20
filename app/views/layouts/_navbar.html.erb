@@ -15,7 +15,7 @@
 
             <% if current_user %>
             <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
-                <li id="vb"><button class="waves-effect waves-light btn dropdown-trigger" data-target="dropdown1"><%= current_user.email %></button></li>
+                <li id="vb"><a class="btn dropdown-trigger" data-target="dropdown1"><%= current_user.first_name %></a></li>
             </ul>
 
             <% else %>

@@ -41,16 +41,13 @@ h6 {
     color: white;
 }
 
-.push-footer {
-    width: 100%;
-    height: 70px;
-}
-
 .page-footer {
-    position: fixed;
-    bottom: 0;
     height: 50px;
+    bottom: 0;
+    position: fixed;
     width: 100%;
+    z-index: 10;
+    text-align: center;
 }
 
 label {
@@ -69,11 +66,11 @@ p {
     padding-bottom: 10px;
 }
 
-.btn {
+.btn, li {
     color: black;
 }
 
-.btn :hover {
+.btn :hover, li :hover {
     color: white;
 }
 
@@ -97,15 +94,6 @@ p {
     border-radius: 5%;
     height: 50px;
     width: 200px;
-}
-
-.footer-copyright {
-    height: 100%;
-    margin: 0;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;;
 }
 
 .clear {

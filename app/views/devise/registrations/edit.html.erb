@@ -1,5 +1,5 @@
 <%= javascript_include_tag 'application' %>
-<div class="devise_format"> 
+<div class="devise_format" style="padding-bottom: 70px;"> 
 
 <h2>Modifica <%= resource_name.to_s.humanize %></h2><br/>
 
@@ -7,46 +7,50 @@
   <%= devise_error_messages! %>
 
   <div class="input-field col s6">
-    <%= f.email_field :email, placeholder: "Placeholder", id: "email", class: "validate", autocomplete: "email" %>
-    <%= f.label :email, for: "email" %><br />
-  </div>
-
-  <div class="input-field col s6">
-    <%= f.text_field :first_name, placeholder: "Placeholder", id: "first_name", class: "validate", autocomplete: "first_name" %>
+    <%= f.text_field :first_name, placeholder: "Placeholder", id: "first_name", class: "validate", readonly: "readonly", autocomplete: "first_name" %>
     <%= f.label "Nome", for: "first_name" %><br />
   </div>
 
   <div class="input-field col s6">
-    <%= f.text_field :last_name, placeholder: "Placeholder", id: "last_name", class: "validate", autocomplete: "last_name" %>
+    <%= f.text_field :last_name, placeholder: "Placeholder", id: "last_name", class: "validate", readonly: "readonly", autocomplete: "last_name" %>
     <%= f.label "Cognome", for: "last_name" %><br />
   </div>
 
   <div class="input-field col s6">
-    <%= f.text_field :birth, placeholder: "Placeholder", id: "birth", class: "validate", autocomplete: "birth", class: "datepicker" %>
+    <%= f.text_field :birth, placeholder: "Placeholder", id: "birth", class: "validate", readonly: "readonly", autocomplete: "birth" %>
     <%= f.label 'Data di nascita', for: "birth" %><br />
+  </div>
+
+  <div class="input-field col s6">
+    <%= f.email_field :email, placeholder: "Placeholder", id: "email", class: "validate", autocomplete: "email" %>
+    <%= f.label :email, for: "email" %><br />
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Aspettando conferma per: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(lascia vuoto se non vuoi modificare)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>Minimo <%= @minimum_password_length %> caratteri</em>
-    <% end %>
+  <div class="input-field col s6">
+    <%= f.password_field :password, id:"new_password", class: "validate", autocomplete: "new-password" %>
+    <%= f.label "Nuova password (lascia vuoto se non vuoi modificare)", for: "new_password" %><br />
+    <span class="helper-text" data-error="Non corretto" data-success="Corretto">
+      <% if @minimum_password_length %>
+      <em>(Minimo <%= @minimum_password_length %> caratteri)</em>
+      <% end %><br />
+    </span>
   </div>
 
-  <div class="field">
-    <%= f.label 'Conferma password' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="input-field col s6">
+    <%= f.password_field :password_confirmation, id:"confirm_password", class: "validate", autocomplete: "new-password" %>
+    <%= f.label 'Conferma password', for: "confirm_password" %><br />
   </div>
 
-  <div class="field">
-    <%= f.label 'Password corrente' %> <i>(è necessaria la tua password corrente per confermare i tuoi cambiamenti)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="input-field col s6">
+    <%= f.password_field :current_password, id:"current_password", class: "validate", autocomplete: "current-password" %>
+    <%= f.label 'Password corrente', for: "current_password" %>
+    <span class="helper-text" data-error="Non corretto" data-success="Corretto">
+      <i>(è necessaria la tua password corrente per confermare i tuoi cambiamenti)</i>
+    </span> <br />
   </div>
 
   <div class="actions">

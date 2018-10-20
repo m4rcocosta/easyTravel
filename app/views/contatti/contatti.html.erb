@@ -1,37 +1,38 @@
+<%= javascript_include_tag 'application' %>
 <h1>Contatti</h1>
 <div class="div_superiore">
 	easyTravel è un progetto per il laboratorio di Architetture Software e Sicurezza Informatica.
 </div>
-<div class="div_inferiore"></br></br>
+<div class="div_inferiore"><br/><br/>
 	<h3>Sviluppatori:</h3>
 	<% if current_user %>
 		<div class="s_image_sx"><a href="mailto:costa.1691388@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
 	<% end %>
-	<div class="s">Marco Costa</br>
-	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div></br></br></br>
-	<div class="s">Gianmarco Cariggi</br>
+	<div class="s">Marco Costa<br/>
+	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div><br/><br/><br/>
+	<div class="s">Gianmarco Cariggi<br/>
 	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div>
 	<% if current_user %>
 		<div class="s_image_sx"><a href="mailto:cariggi.1698481@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
-	<% end %></br></br></br>
+	<% end %><br/><br/><br/>
 	<% if current_user %>
 		<div class="s_image_sx"><a href="mailto:pulicati.1708686@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
 	<% end %>
-	<div class="s">Gianluca Pulicati</br>
-	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div></br></br></br>
-	<div class="s">Andrea Luca Antonini</br>
+	<div class="s">Gianluca Pulicati<br/>
+	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div><br/><br/><br/>
+	<div class="s">Andrea Luca Antonini<br/>
 	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div>
 	<% if current_user %>
 		<div class="s_image_sx"><a href="mailto:antonini.1707560@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
-	<% end %></br></br></br>
+	<% end %><br/><br/><br/>
 	<% if !current_user %>
 		<span id="accedi"><%= link_to 'Accedi', new_user_session_path %> per contattare uno sviluppatore.</span>
 	<% else %>
