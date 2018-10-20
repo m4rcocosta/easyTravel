@@ -1,0 +1,50 @@
+    <div class="padding-div">
+        <div style="float: left; width: 30%; padding-right: 20px;">
+            <label>Città:</label>
+            <select id="cittaHotel">
+                <option value="none" disabled selected>Seleziona la città</option>
+                <optgroup id = "preferitiHotel" label="Preferiti"></optgroup>
+                <%= render 'layouts/cities' %>
+            </select>
+        </div>
+
+        <div style="float: left; width: 15%; padding-right: 20px;">
+            <label>Check in:</label>
+            <input type="text" id="dataCheckin" class="datepicker"><br/><br/>
+        </div>
+
+        <div style="float: left; width: 15%; padding-right: 20px;">
+            <label>Check out: </label>
+            <input type="text" id="dataCheckout" class="datepicker"><br/><br/>
+        </div>
+
+        <div style="float: left; width: 15%; padding-right: 20px;">
+            <label>Numero persone:</label>
+            <select id="numeroPersoneHotel">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+
+        <div style="float: left; width: 15%; padding-right: 20px;">
+            <label>Numero stanze:</label>
+            <select id="numeroStanze">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        
+    </div>
+
+    <div style="clear:both;"></div>
+    <br/>

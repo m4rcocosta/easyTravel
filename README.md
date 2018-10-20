@@ -11,3 +11,10 @@ Corso di laurea in Ingegneria Informatica e Automatica, Sapienza Università di 
 
 ## Written in
 * Rails on Ruby
+
+## How to run
+
+1) ``git clone`` this repo 
+2) Open the terminal in the project path and use `bundle install`
+3) Use `rails db:migrate` and `rails db:seed`
+4) Start the server with `rails server`

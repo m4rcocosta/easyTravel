@@ -30,8 +30,26 @@ $(document).ready(function() {
         n.innerText = num_passeggeri;
     });
 
+    //Cambio id tasto ricerca (voli)
+    $("#atab_voli").on("click", function() {
+        search_btn.id = "ricercavoli";
+        return false;
+    });
+
+    //Cambio id tasto ricerca (hotel)
+    $("#atab_hotel").on("click", function() {
+        search_btn.id = "ricercahotel";
+        return false;
+    });
+
+    //Cambio id tasto ricerca (auto)
+    $("#atab_auto").on("click", function() {
+        search_btn.id = "ricercaauto";
+        return false;
+    });
+
     //Ricerca voli
-    $("#ricerca").on("click", function() {
+    $("#ricercavoli").on("click", function() {
         var cittapartenza = document.getElementById("cittaPartenza").value;
         if(cittapartenza == "none") {
             M.toast({html: "Devi selezionare la città di partenza!"});
@@ -50,9 +68,9 @@ $(document).ready(function() {
         var dataritorno, rtn;
         if($("#check").is(":checked")) {
             dataritorno = document.getElementById("dataRitorno").value;
-            var anno = dataandata.substr(8, 2);
-            var mese = dataandata.substr(3, 2);
-            var giorno = dataandata.substr(0 ,2);
+            anno = dataandata.substr(8, 2);
+            mese = dataandata.substr(3, 2);
+            giorno = dataandata.substr(0 ,2);
             dataritorno = anno+mese+giorno+"/";
             rtn = "1";
         }
@@ -66,4 +84,62 @@ $(document).ready(function() {
         window.focus();
     });
 
+    //Ricerca hotel
+    $("#ricercahotel").on("click", function() {
+        var citta = document.getElementById("cittaHotel").value;
+        if(citta == "none") {
+            M.toast({html: "Devi selezionare una città!"});
+            return false;
+        }
+        var datacheckin = document.getElementById("dataCheckin").value;
+        var anno = datacheckin.substr(6, 4);
+        var mese = datacheckin.substr(3, 2);
+        var giorno = datacheckin.substr(0 ,2);
+        datacheckin = anno+"-"+mese+"-"+giorno;
+        var datacheckout = document.getElementById("dataCheckout").value;
+        anno = datacheckout.substr(6, 4);
+        mese = datacheckout.substr(3, 2);
+        giorno = datacheckout.substr(0 ,2);
+        datacheckout = anno+"-"+mese+"-"+giorno;
+        var persone = document.getElementById("numeroPersoneHotel").value;
+        var stanze = document.getElementById("numeroStanze").value;
+        var link = "https://www.skyscanner.it/hotels/search?entity_id=27539793&checkin="+datacheckin+"&checkout="+datacheckout+"&adults="+persone+"&rooms="+stanze+""
+        window.open(link, "_blank");
+        window.focus();
+    });
+
+    //Ricerca auto
+    $("#ricercaauto").on("click", function() {
+        M.toast({html: "Ricerca auto!"});
+        return false;
+        var link = ""
+        window.open(link, "_blank");
+        window.focus();
+    });
+
 });
+
+
+
+// Cambio id ricerca
+
+function set_voli_id() {
+    document.getElementById("ricercavoli").removeAttribute("style");
+    document.getElementById("ricercahotel").style.display="none";
+    document.getElementById("ricercaauto").style.display="none";
+    return false;
+}
+
+function set_hotel_id() {
+    document.getElementById("ricercavoli").style.display="none";
+    document.getElementById("ricercahotel").removeAttribute("style");
+    document.getElementById("ricercaauto").style.display="none";
+    return false;
+}
+
+function set_auto_id() {
+    document.getElementById("ricercavoli").style.display="none";
+    document.getElementById("ricercahotel").style.display="none";
+    document.getElementById("ricercaauto").removeAttribute("style");
+    return false;
+}

@@ -31,8 +31,8 @@ $(document).ready(function() {
     $('select').formSelect();
     $('.tooltipped').tooltip();
     
-    var datess = document.querySelectorAll('.datepicker');
-    M.Datepicker.init(datess, {
+    var dates = document.querySelectorAll('.datepicker');
+    M.Datepicker.init(dates, {
         autoClose: true,
         format: 'dd-mm-yyyy',
         defaultDate: new Date(),
