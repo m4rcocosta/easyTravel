@@ -18,14 +18,20 @@
 //= require jquery_ujs
 //= require materialize
 
-function abilitaRitorno(chkItem) {
-    if ($(chkItem).is(":checked"))
-        $("#dataRitorno").removeAttr("disabled");
-    else
-        $("#dataRitorno").attr("disabled", "true");
+function abilitaRitorno() {
+    var ischecked = document.getElementById("voli_check").checked;
+    var dataritorno = document.getElementById("dataRitorno");
+    dataritorno.disabled = !ischecked;
+}
+
+function abilitaRiconsegna() {
+    var ischecked = document.getElementById("auto_check").checked;
+    var cittariconsegna = document.getElementById("cittaAutoRiconsegna");
+    cittariconsegna.disabled = !ischecked;
 }
 
 $(document).ready(function() {
+    M.updateTextFields();
     $('.dropdown-trigger').dropdown();
     $('.tabs').tabs();
     $('select').formSelect();

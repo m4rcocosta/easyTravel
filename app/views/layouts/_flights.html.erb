@@ -1,39 +1,48 @@
     
-    <div class="left_alignment">
-        <label>Città di partenza</label>
-        <select id="cittaPartenza">
-            <option value="none" disabled selected>Seleziona la città di partenza</option>
-            <optgroup id = "preferiti" label="Preferiti"></optgroup>
-            <%= render 'layouts/airports' %>
-        </select>
-        <br/><br/>
-        <label>Città di arrivo</label>
-        <select id="cittaArrivo">
-            <option value="none" disabled selected>Seleziona la città di arrivo</option>
-            <optgroup id = "preferiti" label="Preferiti"></optgroup>
-            <%= render 'layouts/airports' %>
-        </select>
-    </div>
+    <div class="padding-div">
 
-    <div class="left_alignment" style="width: 2%;"></div>
+        <div style="float: left; width: 30%; padding-right: 20px;">
+            <label>Città di partenza</label>
+            <select id="cittaPartenza">
+                <option value="none" disabled selected>Seleziona la città di partenza</option>
+                <optgroup id = "preferiti" label="Preferiti"></optgroup>
+                <%= render 'layouts/airports' %>
+            </select>
+        </div>
+        
+        <div style="float: left; width: 30%; padding-right: 20px;">
+            <label>Città di arrivo</label>
+            <select id="cittaArrivo">
+                <option value="none" disabled selected>Seleziona la città di arrivo</option>
+                <optgroup id = "preferiti" label="Preferiti"></optgroup>
+                <%= render 'layouts/airports' %>
+            </select>
+        </div>
 
-    <div class="left_alignment">
-        <form action="#"  class="calendar_style">
-            <label> Andata: </label>
+        <div style="clear:both; height: 70px;"></div>
+
+        <div style="float: left; width: 30%; padding-right: 20px;">
+            <label style="padding-bottom: 14px;"> Andata: </label>
             <input type="text" id="dataAndata" class="datepicker"><br/><br/>
-            <label>
-                <input type="checkbox" class="filled-in" id="check" OnClick="abilitaRitorno(this);" />
-                <span id="a">Ritorno:</span>
+        </div>
+
+        <div style="float: left; width: 30%; padding-right: 20px;">
+            <label style="padding-bottom: 0px;">
+                <input type="checkbox" class="filled-in" id="voli_check" OnClick="abilitaRitorno(this);" style="padding-bottom: 32px;"/>
+                <span id="a" style="padding-bottom: 32px;">Ritorno:</span>
             </label>
             <input type="text" id="dataRitorno" disabled="true" class="datepicker"><br/><br/>
-        </form>
-    </div>
+        </div>
 
-    <div class="left_alignment">
-        <label>Passeggeri:</label>
-        <a id="a-" class="btn-floating btn-small waves-effect black"><i class="material-icons">remove</i></a>
-        <label id="passeggeri">1</label>
-        <a id="aadd" class="btn-floating btn-small waves-effect black"><i class="material-icons">add</i></a>
+        <div style="clear:both; height: 40px;"></div>
+        
+        <div style="float: left; width: 30%; padding-right: 20px;">
+            <label>Passeggeri:</label>
+            <a id="a-" class="btn-floating btn-small waves-effect black"><i class="material-icons">remove</i></a>
+            <label id="passeggeri">1</label>
+            <a id="aadd" class="btn-floating btn-small waves-effect black"><i class="material-icons">add</i></a>
+        </div>
+
     </div>
     
     <div style="clear:both;"></div>

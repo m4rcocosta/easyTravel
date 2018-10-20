@@ -110,11 +110,39 @@ $(document).ready(function() {
 
     //Ricerca auto
     $("#ricercaauto").on("click", function() {
-        M.toast({html: "Ricerca auto!"});
-        return false;
-        var link = ""
+        var cittaritiro = document.getElementById("cittaRitiro").value;
+        if(cittaritiro == "none") {
+            M.toast({html: "Devi selezionare una città!"});
+            return false;
+        }
+        var cittaconsegna = document.getElementById("cittaConsegna").value;
+        var dataritiro = document.getElementById("dataRitiro").value;
+        var anno = dataritiro.substr(6, 4);
+        var mese = dataritiro.substr(3, 2);
+        var giorno = dataritiro.substr(0 ,2);
+        dataritiro = anno+"-"+mese+"-"+giorno;
+        var dataconsegna = document.getElementById("dataConsegna").value;
+        anno = dataconsegna.substr(6, 4);
+        mese = dataconsegna.substr(3, 2);
+        giorno = dataconsegna.substr(0 ,2);
+        dataconsegna = anno+"-"+mese+"-"+giorno;
+        var oraritiro = document.getElementById("oraRitiro").value;
+        var oraconsegna = document.getElementById("oraConsegna").value;
+        var etaconducente = document.getElementById("etaConducente").value;
+        if(isNaN(etaconducente) || Number(etaconducente) < 21 || Number(etaconducente) > 99) {
+            M.toast({html: "Devi inserire un'età compresa tra 21 e 99!"});
+            return false;
+        }
+        var link = "https://www.skyscanner.it/autonoleggio/risultati/"+cittaritiro+"/"+cittaconsegna+"/"+dataritiro+"T"+oraritiro+"/"+dataconsegna+"T"+oraconsegna+"/"+etaconducente;
         window.open(link, "_blank");
         window.focus();
+    });
+
+    //Città consegna = città ritiro
+    $("#cittaRitiro").on("change", function() {
+        var cittaritiro = document.getElementById("cittaRitiro");
+        var cittaconsegna = document.getElementById("cittaConsegna");
+        cittaconsegna.value = cittaconsegna[cittaritiro.selectedIndex].value;
     });
 
 });
