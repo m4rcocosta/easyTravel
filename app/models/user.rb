@@ -21,7 +21,8 @@ class User < ApplicationRecord
   end
 
   def assign_default_role
-    self.add_role(:user) if self.roles.blank?
+    self.add_role(:company_user) if self.roles.blank? && self.roletype
+    self.add_role(:user) if self.roles.blank? && !self.roletype
   end
 
 end

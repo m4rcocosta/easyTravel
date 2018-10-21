@@ -42,6 +42,17 @@
     <%= f.label 'Nato il' %><br />
     <%= f.text_field :birth, autofocus: true, id: "birth", class: "datepicker" %>
   </div>
+  
+  <div class="field">
+    <div class="switch">
+      <label>
+        Privato
+        <%= f.check_box :roletype, id: "roletype" %>
+        <span class="lever"></span>
+        Aziendale
+      </label>
+    </div>
+  </div>
 
   <div class="actions">
     <%= link_to 'Indietro', root_path, class: 'waves-effect waves-light btn' %>

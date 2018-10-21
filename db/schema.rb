@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_234845) do
+ActiveRecord::Schema.define(version: 2018_10_21_221137) do
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_10_20_234845) do
     t.string "first_name"
     t.string "last_name"
     t.date "birth"
+    t.boolean "roletype"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
