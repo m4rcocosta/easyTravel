@@ -18,3 +18,10 @@ Corso di laurea in Ingegneria Informatica e Automatica, Sapienza Università di 
 2) Open the terminal in the project path and use `bundle install`
 3) Use `rails db:migrate` and `rails db:seed`
 4) Start the server with `rails server`
+5) Open your browser and go to ``localhost:3000`` or ``127.0.0.1:3000``
+
+## How to use
+If you want to test the app, there are some default users:
+* User: use `user@easytravel.test` and `usertest`
+* Company User: use `company_user@easytravel.test` and `companyusertest`
+* Admin: use `admin@easytravel.test` and `admintest`

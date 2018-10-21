@@ -1,24 +1,32 @@
 <% if current_user %>
     <div class="row">
         <div class="col s12">
-        <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#tab_voli" OnClick="set_voli_id();return false;">Voli</a></li>
-            <li class="tab col s3"><a href="#tab_hotel" OnClick="set_hotel_id();return false;">Hotel</a></li>
-            <li class="tab col s3"><a href="#tab_auto" OnClick="set_auto_id();return false;">Auto</a></li>
-        </ul>
+            <ul class="tabs">
+                <li class="tab col s3"><a class="active" href="#tab_voli" OnClick="set_voli_id(); return false;">Voli</a></li>
+                <li class="tab col s3"><a href="#tab_hotel" OnClick="set_hotel_id(); return false;">Hotel</a></li>
+                <% if current_user.has_role? :company_user %>
+                <li class="tab col s3"><a href="#tab_auto" OnClick="set_auto_id(); return false;">Auto</a></li>
+                <% end %>
+            </ul>
         </div>
+
         <div id="tab_voli" class="col s12">
             <%= render 'layouts/flights' %>
             <br/>
         </div>
+
         <div id="tab_hotel" class="col s12">
             <%= render 'layouts/hotels' %>
             <br/>
         </div>
+
+        <% if current_user.has_role? :company_user %>
         <div id="tab_auto" class="col s12">
             <%= render 'layouts/cars' %>
             <br/>
         </div>
+        <% end %>
+
     </div>
 
 <% else %>
