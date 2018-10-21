@@ -16,7 +16,8 @@ class User < ApplicationRecord
     user.password = Devise.friendly_token[0,20]
     user.first_name = auth.info.first_name
     user.last_name = auth.info.last_name
-    user.birth = auth.info.date_of_birth
+    user.birth = auth.info.birth
+    user.roletype = false
     end
   end
 

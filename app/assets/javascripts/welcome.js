@@ -17,22 +17,23 @@ $(document).ready(function() {
         n.innerText = num_passeggeri;
     });
 
-    //Cambio id tasto ricerca (voli)
-    $("#atab_voli").on("click", function() {
-        search_btn.id = "ricercavoli";
-        return false;
+    // Data ritorno uguale data andata
+    $("#dataCheckin").on("change", function() {
+        var checkin = document.getElementById("dataCheckin");
+        var checkout = document.getElementById("dataCheckout");
+        checkout.value = checkin.value;
     });
 
-    //Cambio id tasto ricerca (hotel)
-    $("#atab_hotel").on("click", function() {
-        search_btn.id = "ricercahotel";
-        return false;
+    $("#dataAndata").on("change", function() {
+        var andata = document.getElementById("dataAndata");
+        var ritorno = document.getElementById("dataRitorno");
+        ritorno.value = andata.value;
     });
 
-    //Cambio id tasto ricerca (auto)
-    $("#atab_auto").on("click", function() {
-        search_btn.id = "ricercaauto";
-        return false;
+    $("#dataRitiro").on("change", function() {
+        var ritiro = document.getElementById("dataRitiro");
+        var consegna = document.getElementById("dataConsegna");
+        consegna.value = ritiro.value;
     });
 
     //Ricerca voli

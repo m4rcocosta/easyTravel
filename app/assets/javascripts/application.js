@@ -49,5 +49,11 @@ $(document).ready(function() {
         }
     });
 
+    $("#roletype").on("change", function() {
+        var oauth = document.getElementById("oauthauthentication");
+        var checked = document.getElementById("roletype");
+        if(checked.checked) oauth.style.display="none";
+        else oauth.removeAttribute("style");
+    });
 
 });

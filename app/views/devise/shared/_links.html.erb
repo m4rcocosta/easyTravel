@@ -4,7 +4,7 @@
       <% if controller_name != 'registrations' %>
         <br/><%= link_to image_tag("OAuth accesso.png", class:"oauthlogo", :alt => "Google"), omniauth_authorize_path(resource_name, provider), style: 'color: white;' %><br />
       <% else %>
-        <br/><%= link_to image_tag("OAuth registrazione.png", class:"oauthlogo", :alt => "Google"), omniauth_authorize_path(resource_name, provider), style: 'color: white;' %><br />
+        <br/><%= link_to image_tag("OAuth registrazione.png", id:"oauthauthentication", class:"oauthlogo", :alt => "Google"), omniauth_authorize_path(resource_name, provider), style: 'color: white;' %><br />
       <% end %>
     <% else %>
       <br/><%= link_to "Accedi con #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), style: 'color: white;' %><br />
