@@ -15,13 +15,13 @@
 
             <% if current_user %>
             <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
-                <li id="vb"><a class="btn dropdown-trigger" data-target="dropdown1"><%= current_user.first_name %></a></li>
+                <li id="vb"><a class="btn dropdown-trigger hoverable" data-target="dropdown1"><%= current_user.first_name %></a></li>
             </ul>
 
             <% else %>
             <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
-                <li id="vb"><%= link_to 'Accedi', new_user_session_path, class: 'waves-effect waves-light btn' %></li>
-                <li id="vb"><%= link_to 'Registrati', new_user_registration_path, class: 'waves-effect waves-light btn' %></li>
+                <li id="vb"><%= link_to 'Accedi', new_user_session_path, class: 'waves-effect waves-light btn hoverable' %></li>
+                <li id="vb"><%= link_to 'Registrati', new_user_registration_path, class: 'waves-effect waves-light btn hoverable' %></li>
             </ul>
             <% end %>
         </div>

@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  
+  after_create :assign_default_role
+  rolify
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,6 +18,10 @@ class User < ApplicationRecord
     user.last_name = auth.info.last_name
     user.birth = auth.info.date_of_birth
     end
+  end
+
+  def assign_default_role
+    self.add_role(:user) if self.roles.blank?
   end
 
 end
