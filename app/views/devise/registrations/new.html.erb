@@ -8,7 +8,7 @@
 
   <div class="input-field col s6">
     <i class="material-icons prefix">account_circle</i>
-    <%= f.text_field :first_name, class: "validate", id: "first_name_field"%><br />
+    <%= f.text_field :first_name, class: "validate", id: "first_name_field", autofocus: true %><br />
     <%= f.label "Nome", for: "first_name_field" %>
   </div>
 
@@ -19,11 +19,13 @@
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">mail</i>
     <%= f.email_field :email, class: "validate", id: "email_field", autocomplete: "email" %>
     <%= f.label :email, for: "email_field" %><br />
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">security</i>
     <%= f.password_field :password, class: "validate", id: "password_field", autocomplete: "new-password" %>
     <%= f.label :password, for: "password_field" %><br />
     <span class="helper-text" data-error="Non corretto" data-success="Corretto">
@@ -34,13 +36,15 @@
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">security</i>
     <%= f.password_field :password_confirmation, class: "validate", id: "cpassword_field", autocomplete: "new-password" %>
     <%= f.label 'Conferma password', for: "cpassword_field" %><br />
   </div>
 
-  <div class="field">
-    <%= f.label 'Nato il' %><br />
-    <%= f.text_field :birth, autofocus: true, id: "birth", class: "datepicker" %>
+  <div class="input-field col s6">
+    <i class="material-icons prefix">perm_contact_calendar</i>
+    <%= f.text_field :birth, id: "birth", class: "datepicker validate" %>
+    <%= f.label 'Nato il', for: "birth" %><br />
   </div>
   
   <div class="field">

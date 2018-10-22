@@ -7,21 +7,25 @@
   <%= devise_error_messages! %>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">account_circle</i>
     <%= f.text_field :first_name, placeholder: "Placeholder", id: "first_name", class: "validate", readonly: "readonly", autocomplete: "first_name" %>
     <%= f.label "Nome", for: "first_name" %><br />
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">account_circle</i>
     <%= f.text_field :last_name, placeholder: "Placeholder", id: "last_name", class: "validate", readonly: "readonly", autocomplete: "last_name" %>
     <%= f.label "Cognome", for: "last_name" %><br />
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">perm_contact_calendar</i>
     <%= f.text_field :birth, placeholder: "Placeholder", id: "birth", class: "validate", readonly: "readonly", autocomplete: "birth" %>
     <%= f.label 'Data di nascita', for: "birth" %><br />
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">mail</i>
     <%= f.email_field :email, placeholder: "Placeholder", id: "email", class: "validate", autocomplete: "email" %>
     <%= f.label :email, for: "email" %><br />
   </div>
@@ -31,6 +35,7 @@
   <% end %>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">security</i>
     <%= f.password_field :password, id:"new_password", class: "validate", autocomplete: "new-password" %>
     <%= f.label "Nuova password (lascia vuoto se non vuoi modificare)", for: "new_password" %><br />
     <span class="helper-text" data-error="Non corretto" data-success="Corretto">
@@ -41,11 +46,13 @@
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">security</i>
     <%= f.password_field :password_confirmation, id:"confirm_password", class: "validate", autocomplete: "new-password" %>
     <%= f.label 'Conferma password', for: "confirm_password" %><br />
   </div>
 
   <div class="input-field col s6">
+    <i class="material-icons prefix">verified_user</i>
     <%= f.password_field :current_password, id:"current_password", class: "validate", autocomplete: "current-password" %>
     <%= f.label 'Password corrente', for: "current_password" %>
     <span class="helper-text" data-error="Non corretto" data-success="Corretto">

@@ -141,6 +141,9 @@ p {
 }
 
 .tabs {
-    color: black;
     background-color: color("yellow", "base");
+}
+
+.validate, .datepicker, .mystyle {
+    color: white;
 }
