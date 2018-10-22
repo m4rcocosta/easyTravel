@@ -43,24 +43,22 @@
             <a id="aadd" class="btn-floating btn-small waves-effect black"><i class="material-icons">add</i></a>
         </div>
 
-        <div style="float: left; width: 30%; padding-right: 20px;">
-            <label>Meteo:</label>
-            <div id="meteo">
+        <% if current_user %>
+            <div style="float: left; width: 30%; padding-right: 20px;">
+                <label>Meteo:</label>
+                <div id="meteo">
 
-                <label style="font-size: 10pt;" class="weather">Città:</label>
-                <div class="weather">
-                    <%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })['name'] %>
+                    <label style="font-size: 10pt;" class="weather">Città:</label>
+                    <div id="nomeCitta"></div>
+
+                    <div style="clear:both;"></div>
+
+                    <label style="font-size: 10pt;" class="weather">Temperatura:</label>
+                    <div id="meteoCitta"></div>
                 </div>
-
-                <div style="clear:both;"></div>
-
-                <label style="font-size: 10pt;" class="weather">Temperatura:</label>
-                <div class="weather">
-                    <%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })['main'] %>
-                </div>
-            </div>
             
-        </div>
+            </div>
+        <% end %>
 
     </div>
     

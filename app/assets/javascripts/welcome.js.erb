@@ -17,7 +17,7 @@ $(document).ready(function() {
         n.innerText = num_passeggeri;
     });
 
-    // Data ritorno uguale data andata
+    // Date consistenti
     $("#dataCheckin").on("change", function() {
         var checkin = document.getElementById("dataCheckin");
         var checkout = document.getElementById("dataCheckout");
@@ -135,6 +135,14 @@ $(document).ready(function() {
         var cittaritiro = document.getElementById("cittaRitiro");
         var cittaconsegna = document.getElementById("cittaConsegna");
         cittaconsegna.value = cittaconsegna[cittaritiro.selectedIndex].value;
+    });
+
+    //Meteo
+    $("#cittaArrivo").on("change", function() {
+        var m = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["name"] %>'
+        var n = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["main"] %>'
+        $("#nomeCitta").html(m);
+        $("#meteoCitta").html(n);
     });
 
 });
