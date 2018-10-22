@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'rolify'
+gem 'open-weather'
 
 
 # Use CoffeeScript for .coffee assets and views
