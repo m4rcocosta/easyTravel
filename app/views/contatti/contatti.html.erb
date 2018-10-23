@@ -1,4 +1,10 @@
-<%= javascript_include_tag 'application' %>
+<!DOCTYPE html>
+<html>
+<head>
+	<%= javascript_include_tag 'application' %>
+</head>
+
+<body>
 <h1>Contatti</h1>
 <div class="div_superiore">
 	easyTravel è un progetto per il laboratorio di Architetture Software e Sicurezza Informatica.
@@ -35,6 +41,6 @@
 	<% end %><br/><br/><br/>
 	<% if !current_user %>
 		<span id="accedi"><%= link_to 'Accedi', new_user_session_path, style: 'color: white;' %> per contattare uno sviluppatore.</span>
-	<% else %>
 	<% end %>
 </div>
+</body>
