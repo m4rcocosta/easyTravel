@@ -95,8 +95,7 @@ $(document).ready(function() {
         datacheckout = anno+"-"+mese+"-"+giorno;
         var persone = document.getElementById("numeroPersoneHotel").value;
         var stanze = document.getElementById("numeroStanze").value;
-        var link = "https://www.skyscanner.it/hotels/search?entity_id=27539793&checkin="+datacheckin+"&checkout="+datacheckout+"&adults="+persone+"&rooms="+stanze+""
-        window.open(link, "_blank");
+		var link = "https://www.skyscanner.it/hotels/search?entity_id="+citta+"&checkin="+datacheckin+"&checkout="+datacheckout+"&adults="+persone+"&rooms="+stanze;        window.open(link, "_blank");
         window.focus();
     });
 

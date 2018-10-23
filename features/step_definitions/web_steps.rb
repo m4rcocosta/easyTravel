@@ -98,9 +98,8 @@ When /^I log in$/ do
     Given I am on the login page
     When I fill in "Email" with "antonini.andrealuca@gmail.com"
     And I fill in "Password" with "10101010"
-    And I press "Login"
+    And I press "Accedi"
     Then I should be on the home page
-    And I should see "Esci"
   }
 end
 
@@ -116,6 +115,24 @@ end
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}
+  end
+end
+
+Then /^(?:|I )should see "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    expect(page).to have_content(text)
+  else
+    assert page.has_content?(text)
+  end
+end
+
+Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+  regexp = Regexp.new(regexp)
+
+  if page.respond_to? :should
+    expect(page).to have_xpath('//*', :text => regexp)
+  else
+    assert page.has_xpath?('//*', :text => regexp)
   end
 end
 
