@@ -2,4 +2,7 @@
 <div id="footer" class="page-footer">
     © 2018 Copyright Text
     <%= link_to 'Contatti', contatti_contatti_path %>
+    <% if !current_user %>
+        <%= link_to 'Statistiche', statistiche_statistiche_path %>
+    <% end %>
 </div>

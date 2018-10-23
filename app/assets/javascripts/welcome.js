@@ -49,7 +49,7 @@ $(document).ready(function() {
             return false;
         }
         if(cittapartenza == cittaarrivo) {
-            M.toast({html: "La città di arrivo non può essere la sessa!"});
+            M.toast({html: "La città di arrivo non può essere la stessa!"});
             return false;
         }
         var dataandata = document.getElementById("dataAndata").value;
@@ -139,6 +139,7 @@ $(document).ready(function() {
 
     //Meteo
     $("#cittaArrivo").on("change", function() {
+        var id = "3169070";
         var m = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["name"] %>'
         var n = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["main"] %>'
         $("#nomeCitta").html(m);
