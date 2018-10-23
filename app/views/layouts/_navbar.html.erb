@@ -15,8 +15,11 @@
 
             <% if current_user %>
             <ul id="nav-mobile" class="right hide-on-med-and-down navbar-buttons">
-                <li id="vb">                        
-                        <a class="btn dropdown-trigger hoverable" data-target="dropdown1"><i class="material-icons prefix left">account_circle</i><%= current_user.first_name %></a>
+                <li class="valign-wrapper" id="vb">                        
+                    <a class="btn dropdown-trigger hoverable chip" data-target="dropdown1">
+                        <%= image_tag(current_user.avatar.url(:thumb), class:"user_avatar left") %>
+                        <%= current_user.first_name %>
+                    </a>
                 </li>
             </ul>
 

@@ -147,3 +147,25 @@ p {
 .validate, .datepicker, .mystyle {
     color: white;
 }
+
+.chip {
+    background-color: color("yellow", "base");
+    width: 100%;
+    height: 45px;
+    border-radius: 45px;
+    line-height: 45px;
+}
+
+.chip img {
+    width: 45px;
+    height: 45px;
+}
+
+.user_avatar {
+    width: 300px;
+    height: 300px;
+    border: 2px solid color("yellow", "base");
+    border-radius: 150px;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+}

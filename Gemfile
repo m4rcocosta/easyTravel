@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'rolify'
+gem 'paperclip'
 gem 'open-weather'
 
 

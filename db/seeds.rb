@@ -17,7 +17,8 @@ user1 = User.create!(email: 'admin@easytravel.test',
                      password_confirmation: 'admintest',
                      first_name: 'Admin',
                      last_name: 'easyTravel',
-                     birth: '20-10-2018')
+                     birth: '20-10-2018',
+                     avatar: File.new("public/images/medium/admin.png"))
 user1.remove_role(:user)
 user1.add_role(:admin)
 user2 = User.create!(email: 'user@easytravel.test',
@@ -25,13 +26,15 @@ user2 = User.create!(email: 'user@easytravel.test',
                      password_confirmation: 'usertest',
                      first_name: 'User',
                      last_name: 'easyTravel',
-                     birth: '20-10-2018')
+                     birth: '20-10-2018',
+                     avatar: File.new("public/images/medium/user.png"))
 user2.add_role(:user)
 user3 = User.create!(email: 'company_user@easytravel.test',
                      password: 'companyusertest',
                      password_confirmation: 'companyusertest',
                      first_name: 'Company',
                      last_name: 'easyTravel',
-                     birth: '20-10-2018')
+                     birth: '20-10-2018',
+                     avatar: File.new("public/images/medium/company_user.png"))
 user3.remove_role(:user)
 user3.add_role(:company_user)

@@ -9,9 +9,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+    <%= image_tag("/images/medium/missing.png", class:"user_avatar") %>
+    <div class="col-sm-6">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
   <div class="input-field col s6">
     <i class="material-icons prefix">account_circle</i>
-    <%= f.text_field :first_name, class: "validate", id: "first_name_field", autofocus: true %><br />
+    <%= f.text_field :first_name, class: "validate", id: "first_name_field" %><br />
     <%= f.label "Nome", for: "first_name_field" %>
   </div>
 
