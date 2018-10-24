@@ -144,7 +144,6 @@ $(document).ready(function() {
         var cittaarrivo = document.getElementById("cittaArrivo");
         var id = cittaarrivo[cittaarrivo.selectedIndex].id;
         var appid = "<%= Rails.application.credentials.dig(:OPEN_WEATHER_KEY) %>";
-        alert(appid);
         $.ajax ({
             url: "http://api.openweathermap.org/data/2.5/weather?id="+id+"&APPID="+appid+"&units=metric&lang=IT",
             dataType: "json",
