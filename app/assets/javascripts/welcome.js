@@ -137,12 +137,21 @@ $(document).ready(function() {
     });
 
     //Meteo
+    //var m = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["name"] %>'
+    //var n = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["main"] %>'
+           
     $("#cittaArrivo").on("change", function() {
-        var id = "3169070";
-        var m = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["name"] %>'
-        var n = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["main"] %>'
-        $("#nomeCitta").html(m);
-        $("#meteoCitta").html(n);
+        var cittaarrivo = document.getElementById("cittaArrivo");
+        var id = cittaarrivo[cittaarrivo.selectedIndex].id;
+        $.ajax ({
+            url: "http://api.openweathermap.org/data/2.5/weather?id="+id+"&APPID=07a22ac8fa1aeeedcfec8bc055cbe3eb&units=metric&lang=IT",
+            dataType: "json",
+
+            success: function (data) {
+                $("#nomeCittaArrivo").html(data["name"]);
+                $("#meteoCittaArrivo").html(JSON.stringify(data["main"]["temp"])+"°");
+            }
+        });
     });
 
 });
