@@ -137,9 +137,6 @@ $(document).ready(function() {
     });
 
     //Meteo
-    //var m = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["name"] %>'
-    //var n = '<%= OpenWeather::Current.city_id("3169070", { units: "metric", lang: "IT", APPID: Rails.application.credentials.dig(:OPEN_WEATHER_KEY) })["main"] %>'
-           
     $("#cittaArrivo").on("change", function() {
         var cittaarrivo = document.getElementById("cittaArrivo");
         var id = cittaarrivo[cittaarrivo.selectedIndex].id;
@@ -149,8 +146,21 @@ $(document).ready(function() {
             dataType: "json",
 
             success: function (data) {
-                $("#nomeCittaArrivo").html(data["name"]);
-                $("#meteoCittaArrivo").html(JSON.stringify(data["main"]["temp"])+"°");
+                var citta = data["name"];
+                var nazione = data["sys"]["country"];
+                var main = data["main"];
+                var temperatura = JSON.stringify(main["temp"])+"°";
+                var min = JSON.stringify(main["temp_min"])+"°";
+                var max = JSON.stringify(main["temp_max"])+"°";
+                var pressione = JSON.stringify(main["pressure"]);
+                var umidita = JSON.stringify(main["humidity"]);
+                var weather = JSON.stringify(data["weather"]).split(",");
+                var descrizioni = weather[2].split(":");
+                var descrizione = descrizioni[1];
+                descrizione = descrizione.substr(1, descrizione.length - 2);
+                $("#nomeCittaArrivo").html(citta+", "+nazione);
+                $("#meteoCittaArrivo").html(temperatura);
+                $("#descrizioneCittaArrivo").text(descrizione);
             }
         });
     });

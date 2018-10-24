@@ -19,7 +19,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-      user.birth = auth.info.birth
+      user.birth = Date.new(1900, 01, 01)
       user.roletype = false
       user.avatar = open(URI.parse(auth.info.image))
     end

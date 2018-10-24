@@ -29,11 +29,13 @@
     <%= f.label "Cognome", for: "last_name" %><br />
   </div>
 
-  <div class="input-field col s6">
+  <% if !current_user.provider=="google_oauth2" %>
+  <div class="input-field col s6">    
     <i class="material-icons prefix">perm_contact_calendar</i>
     <%= f.text_field :birth, placeholder: "Placeholder", id: "birth", class: "validate", readonly: "readonly", autocomplete: "birth" %>
     <%= f.label 'Data di nascita', for: "birth" %><br />
   </div>
+    <% end %>
 
   <div class="input-field col s6">
     <i class="material-icons prefix">mail</i>
@@ -83,6 +85,7 @@
     <table class="highlight">
       <thead>
         <tr>
+          <th>Avatar</th>
           <th>Nome</th>
           <th>Cognome</th>
           <th>Email</th>
@@ -94,9 +97,10 @@
         <% @users.each do |user| %>
           <% if !user.has_role? :admin %>
           <tr>
+            <td><%= image_tag(user.avatar.url(:thumb), class:"user_avatar_small") %></td>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
-            <td><%= user.email %></td>
+            <td><%= user.provider %></td>
             <td><%= link_to "Cancella utente", admin_destroy_user_path(user), data: { confirm: "Sei sicuro?" }, method: :delete, class: 'waves-effect waves-light btn' %></td>
           </tr>
           <% end %>       
