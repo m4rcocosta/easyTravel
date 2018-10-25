@@ -103,6 +103,10 @@ When /^I log in$/ do
   }
 end
 
+When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
+  attach_file(field, File.expand_path(path))
+end
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -134,6 +138,10 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   else
     assert page.has_xpath?('//*', :text => regexp)
   end
+end
+
+Then /^I should see the image$/ do
+  User.last.avatar_file_name != nil
 end
 
 When /^I log out$/ do

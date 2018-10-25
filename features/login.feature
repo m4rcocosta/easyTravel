@@ -10,7 +10,7 @@ Scenario: Login success
   And I fill in "Password" with "10101010"
   And I press "Login"
   Then I should be on the home page
-  And I should see "Esci"
+  And I should see "Andrea"
 
 Scenario: Login failure
   Given I am on the login page
@@ -18,4 +18,4 @@ Scenario: Login failure
   And I fill in "Password" with "RinoGattuso"
   And I press "Login"
   Then I should be on the login page
-  And I should see "Email o password errati."
+  And I should see "Email o password non validi."

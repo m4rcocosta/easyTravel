@@ -6,7 +6,8 @@ Feature: Remove account
 Scenario: Remove account
 	Given I am a registered user
 	And I log in
-	When I follow "Profilo"
+	When I follow "Andrea"
+	And I follow "Profilo"
 	And I follow "Cancella il mio account"
 	And I press "Ok"
 	Then I should be on the home page

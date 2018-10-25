@@ -6,7 +6,8 @@ Feature: Edit account
 Scenario: Edit account
   Given I am a registered user
   And I log in
-  When I follow "Profilo"
+  When I follow "Andrea"
+  And I follow "Profilo"
   And I fill in "user[password]" with "123456"
   And I fill in "user[password_confirmation]" with "123456"
   And I fill in "user[current_password]" with "10101010"
@@ -14,4 +15,5 @@ Scenario: Edit account
   Then I am on the home page
   When I log out
   And I log in
-  Then I am on the home page
+  Then I should be on the home page
+  And I should see "Andrea"
