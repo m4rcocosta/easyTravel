@@ -5,7 +5,6 @@ Feature: User can check the weather
   
 Scenario: Show the weather
   Given I am a registered user
-  When I log in
-  And I am on the home page
-  When I fill in "Città di arrivo" with "Roma"
+  When I am on the home page
+  And select box "cittaArrivo" is selected with "Roma"
   Then I should see "Città: Roma"

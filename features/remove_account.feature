@@ -5,10 +5,9 @@ Feature: Remove account
 
 Scenario: Remove account
 	Given I am a registered user
-	And I log in
-	When I follow "Andrea"
-	And I follow "Profilo"
-	And I follow "Cancella il mio account"
+	And I am on the home page
+	When I follow "Profilo"
+	And I press "Cancella il mio account"
 	And I press "Ok"
 	Then I should be on the home page
 	And I should see "Accedi"

@@ -41,10 +41,6 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
-Given /^(?:|I )am on (.+)$/ do |page_name|
-  visit path_to(page_name)
-end
-
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -54,31 +50,15 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
-  first(:link, link).click
+  click_link(link)
 end
 
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
+When /^(?:|I )click on "([^"]*)"$/ do
+  find("img[alt='Email']").click
 end
 
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
-  fill_in(field, :with => value)
-end
-
-Given /^(?:|I )am on (.+)$/ do |page_name|
-  visit path_to(page_name)
-end
-
-When /^(?:|I )go to (.+)$/ do |page_name|
-  visit path_to(page_name)
-end
-
-When /^(?:|I )press "([^"]*)"$/ do |button|
-  click_button(button)
-end
-
-When /^(?:|I )follow "([^"]*)"$/ do |link|
-  first(:link, link).click
+And /^select box "([^"]*)" is selected with "([^"]*)"$/ do |dropdown, selected_text|
+   assert page.has_select?(dropdown, selected: selected_text)
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
@@ -90,7 +70,31 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
 end
 
 Given /^I am a registered user$/ do
-  User.create!({:uid => 1, :email => "antonini.andrealuca@gmail.com", :password => "10101010", :password_confirmation => "10101010" })
+  @user = User.create!({:uid => 1, :email => "antonini.andrealuca@gmail.com", :password => "10101010", :password_confirmation => "10101010" })
+end
+
+When /^I sign in with (.*) provider$/ do |provider|
+  visit "/users/auth/#{provider.downcase}"
+end
+
+Given /^I am on the sign up page$/ do
+  step "I am on the home page"
+    if @user == nil
+		step 'I follow "Esci"'
+    end
+    step 'I follow "Registrati"'
+end
+
+Given /^I am on the home page$/ do
+  visit root_path
+end
+
+Given /^I am on the login page$/ do
+  step "I am on the home page"
+    if @user == nil
+		step 'I follow "Esci"'
+    end
+    step 'I follow "Accedi"'
 end
 
 When /^I log in$/ do
@@ -98,13 +102,17 @@ When /^I log in$/ do
     Given I am on the login page
     When I fill in "Email" with "antonini.andrealuca@gmail.com"
     And I fill in "Password" with "10101010"
-    And I press "Accedi"
+    And I follow "Accedi"
     Then I should be on the home page
   }
 end
 
-When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
-  attach_file(field, File.expand_path(path))
+Given /^I am not logged in$/ do
+   @user = nil
+end
+
+When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, file_field|
+  attach_file(file_field, File.expand_path(path))
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
@@ -120,6 +128,14 @@ When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}
   end
+end
+
+Given("I am a company user") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then /^I should be redirected on Skyscanner results for car$/ do
+  visit 'https://www.skyscanner.it/autonoleggio/risultati/*'
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
@@ -146,7 +162,8 @@ end
 
 When /^I log out$/ do
   steps %Q{
-    When I follow "Esci"
+    When I am on the home page
+    And I follow "Esci"
     Then I should be on the home page
   }
 end

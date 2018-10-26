@@ -12,7 +12,7 @@
 <div class="div_inferiore"><br/><br/>
 	<h3>Sviluppatori:</h3>
 	<% if current_user %>
-		<div class="s_image_sx"><a href="mailto:costa.1691388@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
+		<div class="s_image_sx"><%= link_to image_tag("email.jpg", class:"logo_email", :alt => "EMAIL"), "mailto:costa.1691388@studenti.uniroma1.it" %></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
 	<% end %>
@@ -21,12 +21,12 @@
 	<div class="s">Gianmarco Cariggi<br/>
 	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div>
 	<% if current_user %>
-		<div class="s_image_sx"><a href="mailto:cariggi.1698481@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
+		<div class="s_image_sx"><%= link_to image_tag("email.jpg", class:"logo_email", :alt => "EMAIL"), "mailto:cariggi.1698481@studenti.uniroma1.it" %></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
 	<% end %><br/><br/><br/>
 	<% if current_user %>
-		<div class="s_image_sx"><a href="mailto:pulicati.1708686@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
+		<div class="s_image_sx"><%= link_to image_tag("email.jpg", class:"logo_email", :alt => "EMAIL"), "mailto:pulicati.1708686@studenti.uniroma1.it" %></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
 	<% end %>
@@ -35,7 +35,7 @@
 	<div class="s">Andrea Luca Antonini<br/>
 	Graduating in Computer Engineering at "La Sapienza" Università degli Studi di Roma.</div>
 	<% if current_user %>
-		<div class="s_image_sx"><a href="mailto:antonini.1707560@studenti.uniroma1.it"><%= image_tag("email.jpg", class:"logo_email", :alt => "EMAIL") %></a></div>
+		<div class="s_image_sx"><%= link_to image_tag("email.jpg", class:"logo_email", :alt => "EMAIL"), "mailto:antonini.1707560@studenti.uniroma1.it" %></div>
 	<% else %>
 		<div class="s_image_sx"><i class="material-icons prefix">account_circle</i></div>
 	<% end %><br/><br/><br/>

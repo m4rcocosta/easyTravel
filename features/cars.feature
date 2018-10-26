@@ -8,14 +8,14 @@ Scenario: Rent a car
 	When I log in
 	And I am on the home page
 	When I follow "Auto"
-	And I fill in "Città ritiro" with "Roma"
-	And I fill in "Città consegna" with "Milano"
-	And I fill in "Ritiro" with "25-10-2018"
-	And I fill in "Orario:" with "10:00"
-	And I fill in "Consegna" with "26-10-2018"
-	And I fill in "Orario:" with "10:00"
-	And I fill in "Passeggeri" with "1"
-	And I fill in "Età conducente:" with "22"
-	And I press on "Ricerca"
-	Then I should be redirected on "https://www.skyscanner.it/autonoleggio/risultati/27539793/27544068/2018-10-25T10:00/2018-10-26T10:00/22"
+	And I fill in "cittaRitiro" with "Roma"
+	And I fill in "cittaConsegna" with "Milano"
+	And I fill in "dataRitiro" with "25-10-2018"
+	And I fill in "oraRitiro" with "10:00"
+	And I fill in "dataConsegna" with "26-10-2018"
+	And I fill in "oraConsegna" with "10:00"
+	And I fill in "numeroPasseggeri" with "1"
+	And I fill in "etaConducente" with "22"
+	And I follow "Ricerca"
+	Then I should be redirected on Skyscanner results for car
 	

@@ -5,8 +5,7 @@ Feature: User can contact developers
 
 Scenario: Contact developers
 	Given I am a registered user
-	When I log in
-	And I am on the home page
-	When I follow "Contatti"
-	And I click on "logo_email"
+	When I am on the home page
+	And I follow "Contatti"
+	And I click on "EMAIL"
 	Then I should be on the mail page

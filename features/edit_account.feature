@@ -5,8 +5,7 @@ Feature: Edit account
 
 Scenario: Edit account
   Given I am a registered user
-  And I log in
-  When I follow "Andrea"
+  When I am on the home page
   And I follow "Profilo"
   And I fill in "user[password]" with "123456"
   And I fill in "user[password_confirmation]" with "123456"

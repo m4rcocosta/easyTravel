@@ -10,8 +10,8 @@ Scenario: Create a new account
   And I fill in "Email" with "antonini.andrealuca@gmail.com"
   And I fill in "Password" with "10101010" 
   And I fill in "user[password_confirmation]" with "10101010"
-  And I fill in "Nato il"
-  And I press "Registrati"
+  And I fill in "01-01-2015" for "Nato il"
+  And I follow "Registrati"
   Then I should be on the home page
   And I should see "Andrea"
 
@@ -19,6 +19,5 @@ Scenario: Can't create an account
   Given I am on the sign up page
   When I fill in "Email" with "antonini.andrealuca@gmail.com"
   And I fill in "Password" with "10101010"
-  And I press "Registrati"
-  Then I should see "Password confirmation doesn't match Password"
-	
+  And I follow "Registrati"
+  Then I should be on the sign up page

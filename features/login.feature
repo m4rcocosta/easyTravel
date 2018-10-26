@@ -5,17 +5,21 @@ Feature: User can login to the system
 
 Scenario: Login success
   Given I am a registered user
-  And I am on the login page
-  When I fill in "Email" with "antonini.andrealuca@gmail.com"
+  And I log out
+  When I follow "Accedi"
+  And I fill in "Email" with "antonini.andrealuca@gmail.com"
   And I fill in "Password" with "10101010"
-  And I press "Login"
+  And I follow "Accedi"
   Then I should be on the home page
   And I should see "Andrea"
 
 Scenario: Login failure
-  Given I am on the login page
-  When I fill in "Email" with "gaucho@diag.uniroma1.it"
+  Given I am a registered user
+  And I log out
+  When I follow "Accedi"
+  And I fill in "Email" with "gaucho@diag.uniroma1.it"
   And I fill in "Password" with "RinoGattuso"
-  And I press "Login"
+  And I follow "Accedi"
   Then I should be on the login page
-  And I should see "Email o password non validi."
+  And I should see "Accedi"
+  And I should see "Registrati"
