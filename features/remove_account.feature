@@ -7,6 +7,7 @@ Scenario: Remove account
 	Given I am a registered user
 	And I am on the home page
 	When I follow "Profilo"
+	And I am on my profile page
 	And I press "Cancella il mio account"
 	And I press "Ok"
 	Then I should be on the home page

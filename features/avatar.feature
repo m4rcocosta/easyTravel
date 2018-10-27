@@ -13,4 +13,4 @@ Scenario: Add an avatar
   Then I should be on the home page
   And I should see "Andrea"
   When I follow "Profilo"
-  Then I should see the image
+  Then I should see my avatar

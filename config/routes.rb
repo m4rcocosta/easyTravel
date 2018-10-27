@@ -9,3 +9,4 @@ Rails.application.routes.draw do
   match 'users/:id' => 'deleteuser#destroy', :via => :delete, :as => :admin_destroy_user
 
 end
+

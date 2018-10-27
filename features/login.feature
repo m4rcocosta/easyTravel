@@ -11,7 +11,8 @@ Scenario: Login success
   And I fill in "Password" with "10101010"
   And I follow "Accedi"
   Then I should be on the home page
-  And I should see "Andrea"
+  When I follow "Profilo"
+  Then I am on my profile page
 
 Scenario: Login failure
   Given I am a registered user

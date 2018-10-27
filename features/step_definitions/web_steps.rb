@@ -54,7 +54,7 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
 end
 
 When /^(?:|I )click on "([^"]*)"$/ do
-  find("img[alt='Email']").click
+  find("img[alt='EMAIL']").click
 end
 
 And /^select box "([^"]*)" is selected with "([^"]*)"$/ do |dropdown, selected_text|
@@ -97,6 +97,10 @@ Given /^I am on the login page$/ do
     step 'I follow "Accedi"'
 end
 
+And /^I am on my profile page$/ do
+   visit edit_user_registration_path
+end
+
 When /^I log in$/ do
   steps %Q{
     Given I am on the login page
@@ -111,27 +115,34 @@ Given /^I am not logged in$/ do
    @user = nil
 end
 
+Given /^I am a company user$/ do
+   @user == :company_user
+end
+
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, file_field|
   attach_file(file_field, File.expand_path(path))
 end
 
-Then /^(?:|I )should be on (.+)$/ do |page_name|
-  current_path = URI.parse(current_url).path
-  if current_path.respond_to? :should
-    expect(current_path).to be == path_to(page_name)
-  else
-    assert_equal path_to(page_name), current_path
-  end
+Then /^I should be on the login page$/ do
+  visit new_user_session_path
+end
+
+Then /^I should be on the sign up page$/ do
+   visit new_user_registration_path
+end
+
+Then /^I should be on the home page$/ do
+   visit root_path
+end
+
+Then /^I should be on the mail page$/ do
+   pending
 end
 
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}
   end
-end
-
-Given("I am a company user") do
-  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then /^I should be redirected on Skyscanner results for car$/ do
@@ -156,8 +167,16 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
-Then /^I should see the image$/ do
+Then /^I should see my avatar$/ do
   User.last.avatar_file_name != nil
+end
+
+When(/^I select the option containing "([^\"]*)" in "([^\"]*)"$/) do |text, field|
+  select text, from: field
+end
+
+And /^show me the page$/ do
+   save_and_open_page
 end
 
 When /^I log out$/ do

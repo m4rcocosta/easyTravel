@@ -10,4 +10,4 @@ Scenario: User Logs in with Google
 	When I follow "Accedi"
 	And I sign in with Google_oauth2 provider
 	Then I should be on the home page
-	And I should see "Successfully authenticated from Google account."
+	And I should see "Autenticato con successo dall'account Google."

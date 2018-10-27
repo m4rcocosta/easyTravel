@@ -13,7 +13,8 @@ Scenario: Create a new account
   And I fill in "01-01-2015" for "Nato il"
   And I follow "Registrati"
   Then I should be on the home page
-  And I should see "Andrea"
+  When I follow "Profilo"
+  Then I am on my profile page
 
 Scenario: Can't create an account
   Given I am on the sign up page
