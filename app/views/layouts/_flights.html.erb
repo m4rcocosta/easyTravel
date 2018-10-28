@@ -1,67 +1,88 @@
     
     <div class="padding-div">
 
-        <div style="float: left; width: 30%; padding-right: 20px;">
-            <label>Città di partenza</label>
-            <select id="cittaPartenza">
-                <option value="none" disabled selected>Seleziona la città di partenza</option>
-                <optgroup id = "preferiti" label="Preferiti"></optgroup>
-                <%= render 'layouts/airports' %>
-            </select>
-        </div>
+        <div class="left" style="width: 60%;">
+
+            <div style="float: left; width: 50%; padding-right: 20px;">
+                <label>Città di partenza</label>
+                <select id="cittaPartenza">
+                    <option value="none" disabled selected>Seleziona la città di partenza</option>
+                    <%= render 'layouts/airports' %>
+                </select>
+            </div>
         
-        <div style="float: left; width: 30%; padding-right: 20px;">
-            <label>Città di arrivo</label>
-            <select id="cittaArrivo">
-                <option value="none" disabled selected>Seleziona la città di arrivo</option>
-                <optgroup id = "preferiti" label="Preferiti"></optgroup>
-                <%= render 'layouts/airports' %>
-            </select>
-        </div>
+            <div style="float: left; width: 50%; padding-right: 20px;">
+                <label>Città di arrivo</label>
+                <select id="cittaArrivo">
+                    <option value="none" disabled selected>Seleziona la città di arrivo</option>
+                   <%= render 'layouts/airports' %>
+                </select>
+            </div>
 
-        <div style="clear:both; height: 70px;"></div>
+            <div style="clear:both; height: 70px;"></div>
 
-        <div style="float: left; width: 30%; padding-right: 20px;">
-            <label style="padding-bottom: 14px;"> Andata: </label>
-            <input type="text" id="dataAndata" class="datepicker"><br/><br/>
-        </div>
+            <div style="float: left; width: 50%; padding-right: 20px;">
+                <label style="padding-bottom: 14px;"> Andata: </label>
+                <input type="text" id="dataAndata" class="datepicker"><br/><br/>
+            </div>
 
-        <div style="float: left; width: 30%; padding-right: 20px;">
-            <label style="padding-bottom: 0px;">
-                <input type="checkbox" class="filled-in" id="voli_check" OnClick="abilitaRitorno(this);" style="padding-bottom: 32px;"/>
-                <span id="a" style="padding-bottom: 32px;">Ritorno:</span>
-            </label>
-            <input type="text" id="dataRitorno" disabled="true" class="datepicker"><br/><br/>
-        </div>
+            <div style="float: left; width: 50%; padding-right: 20px;">
+                <label style="padding-bottom: 0px;">
+                    <input type="checkbox" class="filled-in" id="voli_check" OnClick="abilitaRitorno(this);" style="padding-bottom: 32px;"/>
+                    <span id="a" style="padding-bottom: 32px;">Ritorno:</span>
+                </label>
+                <input type="text" id="dataRitorno" disabled="true" class="datepicker"><br/><br/>
+            </div>
 
-        <div style="clear:both; height: 40px;"></div>
+            <div style="clear:both; height: 40px;"></div>
         
-        <div style="float: left; width: 30%; padding-right: 20px;">
-            <label>Passeggeri:</label>
-            <a id="a-" class="btn-floating btn-small waves-effect black"><i class="material-icons">remove</i></a>
-            <label id="passeggeri">1</label>
-            <a id="aadd" class="btn-floating btn-small waves-effect black"><i class="material-icons">add</i></a>
+            <div style="float: left; width: 50%; padding-right: 20px;">
+                <label>Passeggeri:</label>
+                <a id="a-" class="btn-floating btn-small waves-effect black"><i class="material-icons">remove</i></a>
+                <label id="passeggeri">1</label>
+                <a id="aadd" class="btn-floating btn-small waves-effect black"><i class="material-icons">add</i></a>
+            </div>
+
+            <% if current_user %>
+               <div style="float: left; width: 50%; padding-right: 20px;">
+                   <label>Meteo:</label>
+                   <div id="meteo">
+
+                       <label class="weather">Città:</label>
+                        <label id="nomeCittaArrivo" class="weather"></label>
+
+                        <div style="clear:both;"></div>
+
+                        <label class="weather">Temperatura:</label>
+                        <label id="meteoCittaArrivo" class="weather"></label>
+
+                        <div style="clear:both;"></div>
+
+                        <label class="weather">Descrizione:</label>
+                        <label id="descrizioneCittaArrivo" class="weather"></label>
+                    </div>
+            
+                </div>
+            <% end %>
+
         </div>
 
         <% if current_user %>
-            <div style="float: left; width: 30%; padding-right: 20px;">
-                <label>Meteo:</label>
-                <div id="meteo">
+            <div class="left" style="width: 40%;">
 
-                    <label class="weather">Città:</label>
-                    <label id="nomeCittaArrivo" class="weather"></label>
+                <label>Informazioni Aeroporti:</label><br/>
+                <div id="info" style="padding-left: 10px;">
 
-                    <div style="clear:both;"></div>
-
-                    <label class="weather">Temperatura:</label>
-                    <label id="meteoCittaArrivo" class="weather"></label>
+                   <label style="font-size: 16pt;">Aeroporto di partenza:</label>
+                    <label id="infoPartenza" style="font-size: 12pt"></label>
 
                     <div style="clear:both;"></div>
 
-                    <label class="weather">Descrizione:</label>
-                    <label id="descrizioneCittaArrivo" class="weather"></label>
+                    <label style="font-size: 16pt;">Aeroporto di arrivo:</label>
+                    <label style="font-size: 12pt" id="infoArrivo"></label>
+                
                 </div>
-            
+
             </div>
         <% end %>
 

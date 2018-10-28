@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    // Variabili
+    var openweatherkey = "<%= Rails.application.credentials.dig(:OPEN_WEATHER_KEY) %>";
+    var aviationedgekey = "<%= Rails.application.credentials.dig(:AVIATION_EDGE_KEY) %>";
+
     // Gestione passeggeri
     $("#a-").on("click", function() {
         var n = document.getElementById("passeggeri");
@@ -139,10 +143,9 @@ $(document).ready(function() {
     //Meteo
     $("#cittaArrivo").on("change", function() {
         var cittaarrivo = document.getElementById("cittaArrivo");
-        var id = cittaarrivo[cittaarrivo.selectedIndex].id;
-        var appid = "<%= Rails.application.credentials.dig(:OPEN_WEATHER_KEY) %>";
+        var idmeteo = cittaarrivo[cittaarrivo.selectedIndex].id;
         $.ajax ({
-            url: "http://api.openweathermap.org/data/2.5/weather?id="+id+"&APPID="+appid+"&units=metric&lang=IT",
+            url: "http://api.openweathermap.org/data/2.5/weather?id="+idmeteo+"&APPID="+openweatherkey+"&units=metric&lang=IT",
             dataType: "json",
 
             success: function (data) {
@@ -161,6 +164,36 @@ $(document).ready(function() {
                 $("#nomeCittaArrivo").html(citta+", "+nazione);
                 $("#meteoCittaArrivo").html(temperatura);
                 $("#descrizioneCittaArrivo").text(descrizione);
+            }
+        });
+
+        var infoarrivo = document.getElementById("infoArrivo");
+        var iataairport = cittaarrivo[cittaarrivo.selectedIndex].value;
+        $.ajax ({
+            url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
+            
+            success: function (data) {
+                text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
+                var jtext = JSON.parse(text); //Converto la stringa in JSON
+                infoarrivo.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
+                    +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
+            }
+        });
+
+    });
+
+    $("#cittaPartenza").on("change", function() {
+        var infopartenza = document.getElementById("infoPartenza");
+        var cittapartenza = document.getElementById("cittaPartenza");
+        var iataairport = cittapartenza[cittapartenza.selectedIndex].value;
+        $.ajax ({
+            url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
+            
+            success: function (data) {
+                text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
+                var jtext = JSON.parse(text); //Converto la stringa in JSON
+                infopartenza.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
+                    +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
             }
         });
     });
