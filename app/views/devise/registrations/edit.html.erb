@@ -100,7 +100,7 @@
             <td><%= image_tag(user.avatar.url(:thumb), class:"user_avatar_small") %></td>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
-            <td><%= user.provider %></td>
+            <td><%= user.email %></td>
             <td><%= link_to "Cancella utente", admin_destroy_user_path(user), data: { confirm: "Sei sicuro?" }, method: :delete, class: 'waves-effect waves-light btn' %></td>
           </tr>
           <% end %>       

@@ -4,10 +4,9 @@ Feature: oauth_login
 	I want to login with Google credentials
 
 @omniauth_test
-Scenario: User Logs in with Google
-	Given I am on the home page
-	And I am not logged in
+Scenario: User logs in with Google
+	Given I am a registered user
+	And I log out
 	When I follow "Accedi"
-	And I sign in with Google_oauth2 provider
-	Then I should be on the home page
-	And I should see "Autenticato con successo dall'account Google."
+	And I click on "Sign in with Google"
+	Then I should see "Autenticato con successo dall'account Google."

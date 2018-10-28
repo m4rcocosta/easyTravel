@@ -1,0 +1,10 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}Introduzione}{1}{section.1}
+\contentsline {section}{\numberline {2}Link github e tracking degli sprint}{2}{section.2}
+\contentsline {section}{\numberline {3}User stories}{2}{section.3}
+\contentsline {section}{\numberline {4}Mockup}{2}{section.4}
+\contentsline {section}{\numberline {5}Schema DB}{2}{section.5}
+\contentsline {section}{\numberline {6}Struttura controllo degli accessi}{2}{section.6}
+\contentsline {subsection}{\numberline {6.1}Ruoli e diritti di accesso alle funzionalit\IeC {\`a} disponibili}{2}{subsection.6.1}
+\contentsline {section}{\numberline {7}Piano dei Test}{2}{section.7}

@@ -1,26 +1,54 @@
 % !TeX encoding = UTF-8
 % !TeX program = pdflatex
 
-% tips: use pdflatex 2 times for a correct pdf output
-%       {\it words} for italian
-%       {\bf words} for bold
-%       \verb|words| for inline verbatim
-
 \documentclass[11pt]{article}
 \usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
 
-\title{easyTravel \\ \bigskip \large Progetto di Laboratorio Software e Sicurezza Informatica}
-\author{Antonini Andrea - Cariggi Gianmarco - Costa Marco - Pulicati Gianluca}
-\date{Ottobre 2018}
+\title{\textbf{easyTravel} \\ \bigskip \large Laboratorio di Architetture Software e Sicurezza Informatica \\ Ingegneria Informatica e Automatica \\ Università degli Studi di Roma "La Sapienza"}
+\author{Antonini Andrea 1707560\\Cariggi Gianmarco 1698481\\Costa Marco 1691388\\Pulicati Gianluca 1708686}
+\date{\today}
 
 \begin{document}
 \maketitle
 
+\tableofcontents
+
 \section{Introduzione}
 
-\begin{verbatim}
 easyTravel è un sito che permette di confrontare prezzi di voli, hotel e noleggio auto in molte
 città europee, dando informazioni sul meteo della città di arrivo se la data è abbastanza vicina.
-\end{verbatim}
+
+\section{Link github e tracking degli sprint}
+
+Link github: \href{https://github.com/marcocosta96/easyTravel}{https://github.com/marcocosta96/easyTravel} \\
+Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG6KlEAEggAsf6aBKnaC1etXz5ji0I/edit#gid=12}{clicca qui} %todo
+
+\section{User stories}
+
+\section{Mockup}
+
+\section{Schema DB}
+
+\section{Struttura controllo degli accessi}
+Sono previste due modalità di accesso:
+\begin{itemize}
+	\item Locale: L’utente inserisce le sue informazioni direttamente sul sito.
+	\item OAuth: L’utente accede tramite Google e dà il consenso al trattamento dei propri dati.
+\end{itemize}
+
+\subsection{Ruoli e diritti di accesso alle funzionalità disponibili}
+I ruoli previsti all’interno dell’applicazione sono i seguenti:
+\begin{itemize}
+	\item Amministratore: ha accesso a tutte le impostazioni che riguardano il sito, può rimuovere commenti/utenti qualora lo ritenga necessario per evitare situazioni spiacevoli.
+	\item Utente non registrato: può solamente fare ricerche di voli e consultare statistiche generali degli utenti che usano il sito.
+	\item Utente registrato (Privato): oltre alle funzionalità concesse ad un utente non registrato, può fare ricerche sugli hotel, può salvare le ricerche effettuate, può impostare le città preferite e può consultare statistiche personali (come ore totali di viaggio, ecc...) e generali.
+	\item Utente registrato (Aziendale): richiesta partita IVA per la registrazione, ha le stesse funzioni dell’utente privato, ma in più può fare ricerche sul noleggio auto. Può consultare solo le statistiche personali.
+\end{itemize}
+
+\section{Piano dei Test}
 
 \end{document}

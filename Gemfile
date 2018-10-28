@@ -24,6 +24,9 @@ gem 'omniauth-google-oauth2'
 gem 'rolify'
 gem 'paperclip'
 gem 'open-weather'
+gem 'launchy'
+gem 'selenium-webdriver', '~> 3.14', '>= 3.14.1'
+gem 'poltergeist'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

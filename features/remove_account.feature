@@ -5,11 +5,15 @@ Feature: Remove account
 
 Scenario: Remove account
 	Given I am a registered user
-	And I am on the home page
+	When I am on the login page
+    And I fill in "Email" with "antonini.andrealuca@gmail.com"
+    And I fill in "Password" with "10101010"
+    And I press "Login"
+    Then I should see "Profilo"
+    And I should see "Statistiche"
+    And I should see "Esci"
 	When I follow "Profilo"
-	And I am on my profile page
-	And I press "Cancella il mio account"
-	And I press "Ok"
+	And I follow "Cancella il mio account"
 	Then I should be on the home page
 	And I should see "Accedi"
 	And I should see "Registrati"

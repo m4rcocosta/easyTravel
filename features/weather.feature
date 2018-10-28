@@ -5,6 +5,6 @@ Feature: User can check the weather
   
 Scenario: Show the weather
   Given I am a registered user
-  When I am on the home page
+  When I log in
   And I select the option containing "Roma Ciampino (CIA)" in "cittaArrivo"
   Then I should see "Città: Roma"
