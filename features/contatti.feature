@@ -7,5 +7,5 @@ Scenario: Contact developers
 	Given I am a registered user
 	When I log in
 	And I follow "Contatti"
-	And I follow "Email"
+	And I click on "EMAIL1"
 	Then I should be on the mail page

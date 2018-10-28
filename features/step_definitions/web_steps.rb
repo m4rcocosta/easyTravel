@@ -53,8 +53,13 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
 
-When /^(?:|I )click on "([^"]*)"$/ do
-  find("img[alt='EMAIL']").click
+When /^(?:|I )click on "EMAIL1"$/ do
+   find(:xpath, "//a/img[@alt='EMAIL1']/..").click
+end
+
+And /^(?:|I )click on "Sign in with Google"$/ do
+   find(:xpath, "//a/img[@alt='Sign in with Google']/..").click
+   visit "/users/auth/google_oauth2"
 end
 
 And /^I confirm "([^"]*)"$/ do |button|
@@ -113,6 +118,11 @@ And /^I am on my profile page$/ do
    visit edit_user_registration_path
 end
 
+Then /^I should be on the mail page$/ do
+  get :redirecting_action
+  response.should redirect_to('mailto:costa.1691388@studenti.uniroma1.it')
+end
+
 When /^I log in$/ do
   steps %Q{
     Given I am on the login page
@@ -129,8 +139,8 @@ Given /^I am not logged in$/ do
    @user = nil
 end
 
-When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, file_field|
-  attach_file(file_field, File.expand_path(path))
+When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
+  attach_file(field, File.expand_path(path))
 end
 
 Then /^I should be on the login page$/ do
@@ -184,11 +194,6 @@ end
 And /^show me the page$/ do
    save_and_open_page
 end
-
-Then("I should be on the mail page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 
 When /^I log out$/ do
   steps %Q{

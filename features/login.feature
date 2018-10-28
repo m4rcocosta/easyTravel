@@ -5,20 +5,14 @@ Feature: User can login to the system
 
 Scenario: Login success
   Given I am a registered user
-  And I log out
-  When I follow "Accedi"
-  And I fill in "Email" with "antonini.andrealuca@gmail.com"
-  And I fill in "Password" with "10101010"
-  And I press "Login"
-  When I follow "Profilo"
-  Then I am on my profile page
+  When I log in
+  Then I should see my avatar
 
 Scenario: Login failure
   Given I am a registered user
-  And I log out
-  When I follow "Accedi"
-  And I fill in "Email" with "gaucho@diag.uniroma1.it"
-  And I fill in "Password" with "RinoGattuso"
+  When I am on the login page
+  And I fill in "Email" with "antonini.andrealuca@gmail.com"
+  And I fill in "Password" with "123456"
   And I press "Login"
   Then I should be on the login page
   And I should see "Accedi"
