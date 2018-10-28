@@ -1,4 +1,5 @@
 <head>
+  <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
 </head>
 
@@ -29,24 +30,33 @@
     <%= f.label "Cognome", for: "last_name" %><br />
   </div>
 
-  <% if !current_user.provider=="google_oauth2" %>
+  <% if !(current_user.provider=="google_oauth2") %>
   <div class="input-field col s6">    
     <i class="material-icons prefix">perm_contact_calendar</i>
     <%= f.text_field :birth, placeholder: "Placeholder", id: "birth", class: "validate", readonly: "readonly", autocomplete: "birth" %>
     <%= f.label 'Data di nascita', for: "birth" %><br />
   </div>
-    <% end %>
+  <% end %>
 
+  <% if !(current_user.provider=="google_oauth2") %>
   <div class="input-field col s6">
     <i class="material-icons prefix">mail</i>
     <%= f.email_field :email, placeholder: "Placeholder", id: "email", class: "validate", autocomplete: "email" %>
     <%= f.label :email, for: "email" %><br />
   </div>
+  <% else %>
+  <div class="input-field col s6">
+    <i class="material-icons prefix">mail</i>
+    <%= f.email_field :email, placeholder: "Placeholder", id: "email", class: "validate", readonly: "readonly", autocomplete: "email" %>
+    <%= f.label :email, for: "email" %><br />
+  </div>
+  <% end %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Aspettando conferma per: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <% if !(current_user.provider=="google_oauth2") %>
   <div class="input-field col s6">
     <i class="material-icons prefix">security</i>
     <%= f.password_field :password, id:"new_password", class: "validate", autocomplete: "new-password" %>
@@ -57,13 +67,17 @@
       <% end %><br />
     </span>
   </div>
+  <% end %>
 
+  <% if !(current_user.provider=="google_oauth2") %>
   <div class="input-field col s6">
     <i class="material-icons prefix">security</i>
     <%= f.password_field :password_confirmation, id:"confirm_password", class: "validate", autocomplete: "new-password" %>
     <%= f.label 'Conferma password', for: "confirm_password" %><br />
   </div>
+  <% end %>
 
+  <% if !(current_user.provider=="google_oauth2") %>
   <div class="input-field col s6">
     <i class="material-icons prefix">verified_user</i>
     <%= f.password_field :current_password, id:"current_password", class: "validate", autocomplete: "current-password" %>
@@ -72,6 +86,7 @@
       <i>(è necessaria la tua password corrente per confermare i tuoi cambiamenti)</i>
     </span> <br />
   </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Aggiorna", class: 'waves-effect waves-light btn' %>
