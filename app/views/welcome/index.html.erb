@@ -6,9 +6,9 @@
         <%= render 'layouts/center' %>
 
         <div id ="button_div">
-            <a id="ricercavoli" class="btn waves-effect waves-light tooltipped pulse hoverable" data-position="bottom" data-tooltip="Sarai reindirizzato sul sito di Skyscanner">Ricerca</a>
-            <a id="ricercahotel" style="display: none;" class="btn waves-effect waves-light tooltipped pulse hoverable" data-position="bottom" data-tooltip="Sarai reindirizzato sul sito di Skyscanner">Ricerca</a>
-            <a id="ricercaauto" style="display: none;" class="btn waves-effect waves-light tooltipped pulse hoverable" data-position="bottom" data-tooltip="Sarai reindirizzato sul sito di Skyscanner">Ricerca</a>
+            <%= link_to "Ricerca", "javascript:void(0)", id: "ricercavoli", class: "btn waves-effect waves-light tooltipped pulse hoverable",  "data-position" => "bottom", "data-tooltip" => "Sarai reindirizzato sul sito di Skyscanner" %>
+            <%= link_to "Ricerca", "javascript:void(0)", id: "ricercahotel", style: "display: none", class: "btn waves-effect waves-light tooltipped pulse hoverable",  "data-position" => "bottom", "data-tooltip" => "Sarai reindirizzato sul sito di Skyscanner" %>
+            <%= link_to "Ricerca", "javascript:void(0)", id: "ricercaauto", style: "display: none", class: "btn waves-effect waves-light tooltipped pulse hoverable",  "data-position" => "bottom", "data-tooltip" => "Sarai reindirizzato sul sito di Skyscanner" %>
         <div>
 
         <div style="clear:both;"></div>
