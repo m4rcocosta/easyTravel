@@ -9,5 +9,4 @@ Scenario: User Logs in with Google
 	And I am not logged in
 	When I follow "Accedi"
 	And I sign in with Google_oauth2 provider
-	Then I should be on the home page
-	And I should see "Autenticato con successo dall'account Google."
+	Then I should see "Autenticato con successo dall'account Google."

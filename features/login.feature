@@ -9,8 +9,7 @@ Scenario: Login success
   When I follow "Accedi"
   And I fill in "Email" with "antonini.andrealuca@gmail.com"
   And I fill in "Password" with "10101010"
-  And I follow "Accedi"
-  Then I should be on the home page
+  And I press "Login"
   When I follow "Profilo"
   Then I am on my profile page
 
@@ -20,7 +19,7 @@ Scenario: Login failure
   When I follow "Accedi"
   And I fill in "Email" with "gaucho@diag.uniroma1.it"
   And I fill in "Password" with "RinoGattuso"
-  And I follow "Accedi"
+  And I press "Login"
   Then I should be on the login page
   And I should see "Accedi"
   And I should see "Registrati"

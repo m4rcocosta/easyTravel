@@ -57,6 +57,10 @@ When /^(?:|I )click on "([^"]*)"$/ do
   find("img[alt='EMAIL']").click
 end
 
+And /^I confirm "([^"]*)"$/ do |button|
+  click_button(button)
+end
+
 And /^select box "([^"]*)" is selected with "([^"]*)"$/ do |dropdown, selected_text|
    assert page.has_select?(dropdown, selected: selected_text)
 end
@@ -70,11 +74,19 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
 end
 
 Given /^I am a registered user$/ do
-  @user = User.create!({:uid => 1, :email => "antonini.andrealuca@gmail.com", :password => "10101010", :password_confirmation => "10101010" })
+  @user = User.create!({:uid => 1, :email => "antonini.andrealuca@gmail.com", :password => "10101010", :password_confirmation => "10101010", :roletype => true })
+  @user.remove_role(:user)
+  @user.add_role(:admin)
 end
 
-When /^I sign in with (.*) provider$/ do |provider|
-  visit "/users/auth/#{provider.downcase}"
+Given /^I am a company user$/ do
+  @user = User.create!({:uid => 1, :email => "antonini@gmail.com", :password => "123456", :password_confirmation => "123456", :roletype => true })
+  @user.remove_role(:user)
+  @user.add_role(:admin)
+end
+
+When /^I sign in with Google_oauth2 provider$/ do
+  visit "/users/auth/google_oauth2"
 end
 
 Given /^I am on the sign up page$/ do
@@ -106,17 +118,15 @@ When /^I log in$/ do
     Given I am on the login page
     When I fill in "Email" with "antonini.andrealuca@gmail.com"
     And I fill in "Password" with "10101010"
-    And I follow "Accedi"
-    Then I should be on the home page
+    And I press "Login"
+    Then I should see "Profilo"
+    And I should see "Statistiche"
+    And I should see "Esci"
   }
 end
 
 Given /^I am not logged in$/ do
    @user = nil
-end
-
-Given /^I am a company user$/ do
-   @user == :company_user
 end
 
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, file_field|
@@ -133,10 +143,6 @@ end
 
 Then /^I should be on the home page$/ do
    visit root_path
-end
-
-Then /^I should be on the mail page$/ do
-   pending
 end
 
 When /^(?:|I )fill in the following:$/ do |fields|
@@ -178,6 +184,11 @@ end
 And /^show me the page$/ do
    save_and_open_page
 end
+
+Then("I should be on the mail page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 
 When /^I log out$/ do
   steps %Q{
