@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :statistics
 
   get 'contatti/contatti'
-  get 'statistiche/statistiche'
+  
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations"}
 
   root to: 'welcome#index'

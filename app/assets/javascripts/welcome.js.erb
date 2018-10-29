@@ -74,6 +74,20 @@ $(document).ready(function() {
             dataritorno = "";
             rtn = "0";
         }
+
+        $.ajax ({
+                url: "http://localhost:3000/statistics",
+                type: "POST",
+                data: {
+                    partenza: cittapartenza,
+                    arrivo: cittaarrivo
+                },
+
+            success: function (data) {
+                M.toast({html: "Statistiche aggiornate!"});
+            }
+        });
+
         var passeggeri = document.getElementById("passeggeri").textContent;
         var link = "https://www.skyscanner.it/trasporti/voli/"+cittapartenza+"/"+cittaarrivo+"/"+dataandata+"/"+dataritorno+"?adults="+passeggeri+"&children=0&adultsv2="+passeggeri+"&childrenv2=&infants=0&cabinclass=economy&rtn="+rtn+"&preferdirects=true&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results"
         window.open(link, "_blank");
