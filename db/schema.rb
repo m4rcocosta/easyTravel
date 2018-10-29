@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_140728) do
   end
 
   create_table "statistics", force: :cascade do |t|
-    t.integer "conteggio", default: 0, null: false
+    t.integer "conteggio", default: 1, null: false
     t.string "partenza", default: "", null: false
     t.string "arrivo", default: "", null: false
     t.datetime "created_at", null: false
