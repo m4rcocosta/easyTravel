@@ -173,10 +173,13 @@ $(document).ready(function() {
             url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
             
             success: function (data) {
-                text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
-                var jtext = JSON.parse(text); //Converto la stringa in JSON
-                infoarrivo.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
-                    +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
+                if(data == '{"error": {"text": "No Record Found" }}') infoarrivo.innerHTML = "Informazioni non disponibili!";
+                else {
+                    text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
+                    var jtext = JSON.parse(text); //Converto la stringa in JSON
+                    infoarrivo.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
+                        +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
+                }
             }
         });
 
@@ -186,14 +189,56 @@ $(document).ready(function() {
         var infopartenza = document.getElementById("infoPartenza");
         var cittapartenza = document.getElementById("cittaPartenza");
         var iataairport = cittapartenza[cittapartenza.selectedIndex].value;
+        var text, jtext, id, nome, time, gtm, nazione, na;
         $.ajax ({
             url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
             
             success: function (data) {
-                text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
-                var jtext = JSON.parse(text); //Converto la stringa in JSON
-                infopartenza.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
-                    +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
+                if(data == '{"error": {"text": "No Record Found" }}') infoarrivo.innerHTML = "Informazioni non disponibili!";
+                else {
+                    text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
+                    jtext = JSON.parse(text); //Converto la stringa in JSON
+                    id = jtext.airportId;
+                    nome = jtext.nameAirport;
+                    time = jtext.timezone;
+                    gtm = jtext.GMT;
+                    nazione = jtext.nameCountry;
+                    na = jtext.codeIso2Country;
+                    infopartenza.innerHTML = "ID aeroporto: "+id+"<br/>Nome aeroporto: "+nome+"<br/>Timezone: "
+                        +time+"<br/>GMT: "+gtm+"<br/>Nazione: "+nazione+" ("+na+")";
+                }
+            }
+        });
+    });
+
+    $("#infovoli").on("click", function() {
+        var cittapartenza = document.getElementById("cittaPartenza");
+        var cittaarrivo = document.getElementById("cittaArrivo");
+        var iatapartenza = cittapartenza[cittapartenza.selectedIndex].value;
+        var iataarrivo = cittaarrivo[cittaarrivo.selectedIndex].value;
+        var tratta = document.getElementById("tratta");
+        var volidisponibili = document.getElementById("voliDisponibili");
+        var text, jtext;
+        if(cittapartenza.value == "none") {
+            M.toast({html: "Devi selezionare la città di partenza!"});
+            return false;
+        }
+        if(cittaarrivo.value == "none") {
+            M.toast({html: "Devi selezionare la città di arrivo!"});
+            return false;
+        }
+        $.ajax ({
+            url: "http://aviation-edge.com/v2/public/flights?key="+aviationedgekey+"&depIata="+iatapartenza+"&arrIata="+iataarrivo,
+            
+            success: function (data) {
+                text = data.substr(1, data.length - 2); //Rendo la stringa compatobole con JSON
+                var errmsg = '"error": "No Record Found or Flight not currently detected by receivers. " ';
+                if(text == errmsg) volidisponibili.innerHTML = "Nessuna informazione disponibile per la tratta selezionata!";
+                else {
+                    jtext = JSON.parse(text);
+                    tratta.innerHTML = "Tratta "+cittapartenza[cittapartenza.selectedIndex].text+"-"+cittaarrivo[cittaarrivo.selectedIndex].text;
+                    volidisponibili.innerHTML = text;
+                }
             }
         });
     });
