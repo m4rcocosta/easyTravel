@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <%= javascript_tag do%>
+	    <% if current_user%>
+        window.user_email = "<%=j current_user.email %>"
+	    <% else %>
+        window.user_email = "guest"
+	    <% end %>
+    <% end %>
     <div id="container">
       <%= render 'layouts/navbar' %>
       <%= render 'layouts/alerts' %>
