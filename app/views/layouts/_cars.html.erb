@@ -4,7 +4,6 @@
             <label>Città ritiro:</label>
             <select id="cittaRitiro">
                 <option value="none" disabled selected>Seleziona la città di ritiro</option>
-                <optgroup id = "preferitiAuto" label="Preferiti"></optgroup>
                 <%= render 'layouts/cities' %>
             </select>
         </div>
@@ -13,7 +12,6 @@
             <label>Città consegna:</label>
             <select id="cittaConsegna">
                 <option value="none" disabled selected>Seleziona la città di consegna (default: città ritiro)</option>
-                <optgroup id = "preferitiAuto" label="Preferiti"></optgroup>
                 <%= render 'layouts/cities' %>
             </select>
         </div>
