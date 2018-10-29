@@ -38,11 +38,11 @@ Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG
 \section{Istruzioni per l'avvio}
 
 \begin{enumerate}
-	\item git clone this \href{https://github.com/marcocosta96/easyTravel}{repo}
-	\item Open the terminal in the project path and use bundle install
-	\item Use rails db:migrate and rails db:seed
-	\item Start the server with rails server
-	\item Open your browser and go to localhost:3000 or 127.0.0.1:3000
+	\item Esegui \begin{verbatim}git clone https://github.com/marcocosta96/easyTravel\end{verbatim}
+	\item Apri il terminale nel percorso del progetto ed esegui \begin{verbatim}bundle install\end{verbatim}
+	\item Esegui \begin{verbatim}rails db:migrate && rails db:seed\end{verbatim} NOTA: per resettare il database, esegui il comando \begin{verbatim}rails db:reset\end{verbatim}
+	\item Fai partire il server con il comando \begin{verbatim}rails server\end{verbatim}
+	\item Clicca \href{localhost:3000}{localhost:3000} o \href{127.0.0.1:3000}{127.0.0.1:3000} oppure copiali sul vostro browser;
 \end{enumerate}
 
 Account di default:
@@ -108,6 +108,7 @@ Account di default:
 	\item As an ADMIN I want to HAVE SPECIAL SETTINGS so that I can DELETE USERS;
 \end{enumerate}
 
+\pagebreak
 
 \section{Schema DB}
 \begin{figure}[!ht]
@@ -152,7 +153,7 @@ Per la registrazione e l'accesso ai servizi sono state usate le seguenti gemme:
 
 \begin{large}\textbf{Informazioni meteo}\end{large}\\ 
 Attraverso la gemma \href{https://github.com/coderhs/ruby_open_weather_map}{\textbf{open-weather}}, possiamo cercare informazioni sul meteo per le città selezionate se è disponibile per il giorno della partenza.
-\\\\
+\\\\\\
 \begin{large}\textbf{Informazioni voli}\end{large}\\
 Per le informazioni sui voli, utilizziamo le \textbf{API REST} del servizio \href{https://aviation-edge.com/}{Aviation Edge}. Tramite questo sito è possibile consultare tutte le informazioni riguardanti gli aeroporti delle città selezionate e gli orari dei voli. Inoltre tramite apposito pulsante è possibile fare redirect al sito \href{https://www.skyscanner.it}{Skyscanner} con cui poter confrontare i prezzi e procedere all'acquisto tramite il loro portale.
 \\\\
