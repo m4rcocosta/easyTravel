@@ -16,7 +16,7 @@ Corso di laurea in Ingegneria Informatica e Automatica, Sapienza Università di 
 
 1) ``git clone`` this repo 
 2) Open the terminal in the project path and use `bundle install`
-3) Use `rails db:migrate` and `rails db:seed`
+3) Use `rails db:migrate` and `rails db:seed`  
     -NOTE: To reset application's database run `rails db:reset` BEFORE `rails db:migrate`
 4) Start the server with `rails server`
 5) Open your browser and go to ``localhost:3000`` or ``127.0.0.1:3000``
