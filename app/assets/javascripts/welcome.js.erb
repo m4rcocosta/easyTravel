@@ -42,17 +42,17 @@ $(document).ready(function() {
 
     //Ricerca voli
     $("#ricercavoli").on("click", function() {
-        var cittapartenza = document.getElementById("cittaPartenza").value;
-        if(cittapartenza == "none") {
+        var cittapartenza = document.getElementById("cittaPartenza");
+        if(cittapartenza.value == "none") {
             M.toast({html: "Devi selezionare la città di partenza!"});
             return false;
         }
-        var cittaarrivo = document.getElementById("cittaArrivo").value;
-        if(cittaarrivo == "none") {
+        var cittaarrivo = document.getElementById("cittaArrivo");
+        if(cittaarrivo.value == "none") {
             M.toast({html: "Devi selezionare la città di arrivo!"});
             return false;
         }
-        if(cittapartenza == cittaarrivo) {
+        if(cittapartenza.value == cittaarrivo.value) {
             M.toast({html: "La città di arrivo non può essere la stessa!"});
             return false;
         }
@@ -79,8 +79,8 @@ $(document).ready(function() {
                 url: "http://localhost:3000/statistics",
                 type: "POST",
                 data: {
-                    partenza: cittapartenza,
-                    arrivo: cittaarrivo
+                    partenza: cittapartenza[cittapartenza.selectedIndex].textContent,
+                    arrivo: cittaarrivo[cittaarrivo.selectedIndex].textContent
                 },
 
             success: function (data) {
@@ -89,7 +89,7 @@ $(document).ready(function() {
         });
 
         var passeggeri = document.getElementById("passeggeri").textContent;
-        var link = "https://www.skyscanner.it/trasporti/voli/"+cittapartenza+"/"+cittaarrivo+"/"+dataandata+"/"+dataritorno+"?adults="+passeggeri+"&children=0&adultsv2="+passeggeri+"&childrenv2=&infants=0&cabinclass=economy&rtn="+rtn+"&preferdirects=true&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results"
+        var link = "https://www.skyscanner.it/trasporti/voli/"+cittapartenza.value+"/"+cittaarrivo.value+"/"+dataandata+"/"+dataritorno+"?adults="+passeggeri+"&children=0&adultsv2="+passeggeri+"&childrenv2=&infants=0&cabinclass=economy&rtn="+rtn+"&preferdirects=true&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results"
         window.open(link, "_blank");
         window.focus();
     });
