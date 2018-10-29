@@ -79,8 +79,8 @@ $(document).ready(function() {
                 url: "http://localhost:3000/statistics",
                 type: "POST",
                 data: {
-                    partenza: cittapartenza[cittapartenza.selectedIndex].textContent,
-                    arrivo: cittaarrivo[cittaarrivo.selectedIndex].textContent
+                    partenza: cittapartenza[cittapartenza.selectedIndex].label,
+                    arrivo: cittaarrivo[cittaarrivo.selectedIndex].label
                 },
 
             success: function (data) {
