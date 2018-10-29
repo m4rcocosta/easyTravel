@@ -27,6 +27,7 @@ gem 'open-weather'
 gem 'launchy'
 gem 'selenium-webdriver', '~> 3.14', '>= 3.14.1'
 gem 'poltergeist'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -54,6 +55,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
 end
 
 group :development do

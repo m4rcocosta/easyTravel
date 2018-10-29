@@ -12,20 +12,46 @@
 \author{Antonini Andrea 1707560\\Cariggi Gianmarco 1698481\\Costa Marco 1691388\\Pulicati Gianluca 1708686}
 \date{\today}
 
+
+
 \begin{document}
 \maketitle
 
+\pagebreak
+
 \tableofcontents
+
+\pagebreak
 
 \section{Introduzione}
 
-easyTravel è un sito che permette di confrontare prezzi di voli, hotel e noleggio auto in molte
-città europee, dando informazioni sul meteo della città di arrivo se la data è abbastanza vicina.
+easyTravel è un sito che permette di confrontare prezzi e orari di voli, hotel e noleggio auto in molte
+città italiane e le principali città europee, dando informazioni sul meteo della città di arrivo se la data è abbastanza vicina.
+
 
 \section{Link github e tracking degli sprint}
 
 Link github: \href{https://github.com/marcocosta96/easyTravel}{https://github.com/marcocosta96/easyTravel} \\
-Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG6KlEAEggAsf6aBKnaC1etXz5ji0I/edit#gid=12}{clicca qui} %todo
+Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG6KlEAEggAsf6aBKnaC1etXz5ji0I/edit#gid=12}{clicca qui} (TODO) %todo
+
+
+\section{Istruzioni per l'avvio}
+
+\begin{enumerate}
+	\item git clone this \href{https://github.com/marcocosta96/easyTravel}{repo}
+	\item Open the terminal in the project path and use bundle install
+	\item Use rails db:migrate and rails db:seed
+	\item Start the server with rails server
+	\item Open your browser and go to localhost:3000 or 127.0.0.1:3000
+\end{enumerate}
+
+Account di default:
+\begin{itemize}
+	\item Utente privato: username-> user@easytravel.test password-> usertest
+	\item Utente aziendale: username-> company\_user@easytravel.test password-> companyusertest
+	\item Admin: username-> admin@easytravel.test password-> admintest
+\end{itemize}
+
 
 \section{User stories}
 
@@ -51,35 +77,27 @@ Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG
 
 \subsection{Unregistered User}
 \begin{enumerate}
-	\item As an UNREGISTERED USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE PRICES;
+	\item As an UNREGISTERED USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE SCHEDULES and PRICES;
 	\item As an UNREGISTERED USER I want to SEE THE STATISTICS so that I can SEE THE GENERAL STATISTICS;
 	\item As an UNREGISTERED USER I want to SEE THE WEATHER OF THE ARRIVAL CITY so that I CAN PLAN BETTER MY TRIP;
 \end{enumerate}
 
 \subsection{Registered User}
 \begin{enumerate}
-	\item As a REGISTERED USER I want to CONFIRM MY EMAIL so that I can ACTIVATE MY ACCOUNT;
-	\item As a REGISTERED USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE PRICES;
+	\item As a REGISTERED USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE SCHEDULES and PRICES;
 	\item As a REGISTERED USER I want to SEE THE STATISTICS so that I can SEE THE GENERAL STATISTICS;
 	\item As a REGISTERED USER I want to see the weather of the arrival city so that I can PLAN BETTER MY TRIP;
 	\item As a REGISTERED USER I want to research for hotels in arrival city so that I can COMPARE PRICES;
-	\item As a REGISTERED USER I want to SAVE THE SEARCH so that I can REUSE IT;
-	\item As a REGISTERED USER I want to SAVE MY FAVOURITE CITIES so that I can DO RESEARCH EASILY;
-	\item As a REGISTERED USER I want to DELETE FAVOURITE CITIES so that I can UPDATE MY FAVOURITE CITIES LIST;
 	\item As a REGISTERED USER I want to SEE THE STATISTICS so that I can SEE GENERAL STATISTICS;
 	\item As a REGISTERED USER I want to SEE THE STATISTICS so that I can SEE PERSONAL STATISTICS;
 \end{enumerate}
 
 \subsection{Company User}
 \begin{enumerate}
-	\item As a COMPANY USER I want to CONFIRM MY EMAIL so that I can ACTIVATE MY ACCOUNT;
-	\item As a COMPANY USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE PRICES;
+	\item As a COMPANY USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE SCHEDULES and PRICES;
 	\item As a COMPANY USER I want to SEE THE STATISTICS so that I can SEE THE GENERAL STATISTICS;
 	\item As a COMPANY USER I want to SEE THE WEATHER OF THE ARRIVAL CITY so that I can PLAN BETTER MY TRIP;
 	\item As a COMPANY USER I want TO RESEARCH FOR HOTELS IN ARRIVAL CITY so that I can COMPARE PRICES;
-	\item As a COMPANY USER I want to SAVE THE SEARCH so that I can REUSE IT;
-	\item As a COMPANY USER I want to SAVE MY FAVOURITE CITIES so that I can DO RESEARCH EASILY;
-	\item As a COMPANY USER I want to DELETE FAVOURITE CITIES so that I can UPDATE MY FAVOURITE CITIES LIST;
 	\item As a COMPANY USER I want to SEE THE STATISTICS so that I can SEE GENERAL STATISTICS;
 	\item As a COMPANY USER I want to RESEARCH FOR CARS so that I can RENT A CAR;
 \end{enumerate}
@@ -88,34 +106,131 @@ Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG
 \begin{enumerate}
 	\item As an ADMIN I want to HAVE AN USER LIST so that I can CHECK THE USERS OF THE WEBSITE;
 	\item As an ADMIN I want to HAVE SPECIAL SETTINGS so that I can DELETE USERS;
-	\item As an ADMIN I want to HAVE SPECIAL SETTINGS so that I can SUSPEND THE WEBSITE;
 \end{enumerate}
 
-\section{Mockup}
 
 \section{Schema DB}
 \begin{figure}[!ht]
 	\includegraphics[width=1.2\textwidth]{progetto} % adjust width
-	\caption{Schema ER}
-	\label{fig:picture1}
+	\caption{Schema ER realizzato mediante l'applicazione Java JDER v1.3}
+	\label{fig:schemaer}
 \end{figure}
+
 
 \section{Struttura controllo degli accessi}
 Sono previste due modalità di accesso:
 \begin{itemize}
 	\item Locale: L’utente inserisce le sue informazioni direttamente sul sito.
-	\item OAuth: L’utente accede tramite Google e dà il consenso al trattamento dei propri dati.
+	\item OAuth: L’utente accede tramite Google e dà il consenso al trattamento dei propri dati, in questo modo è possibile compilare il form di registrazione e di accesso usando i dati del vostro account Google.
 \end{itemize}
 
-\subsection{Ruoli e diritti di accesso alle funzionalità disponibili}
+\subsection{Ruoli e diritti di accesso alle funzionalità disponibili}\label{roles}
 I ruoli previsti all’interno dell’applicazione sono i seguenti:
 \begin{itemize}
 	\item Amministratore: ha accesso a tutte le impostazioni che riguardano il sito, può rimuovere commenti/utenti qualora lo ritenga necessario per evitare situazioni spiacevoli.
 	\item Utente non registrato: può solamente fare ricerche di voli e consultare statistiche generali degli utenti che usano il sito.
 	\item Utente registrato (Privato): oltre alle funzionalità concesse ad un utente non registrato, può fare ricerche sugli hotel, può salvare le ricerche effettuate, può impostare le città preferite e può consultare statistiche personali (come ore totali di viaggio, ecc...) e generali.
-	\item Utente registrato (Aziendale): richiesta partita IVA per la registrazione, ha le stesse funzioni dell’utente privato, ma in più può fare ricerche sul noleggio auto. Può consultare solo le statistiche personali.
+	\item Utente registrato (Aziendale): attivabile tramite apposito slider durante la registrazione, ha le stesse funzioni dell’utente privato, ma in più può fare ricerche sul noleggio auto. Può consultare solo le statistiche personali.
 \end{itemize}
 
+
+\section{Tecnologie utilizzate}
+La web-app è basata sul paradigma \textbf{MVC (Model View Control)}.\\
+
+\begin{large}\textbf{Linguaggi}\end{large}
+\begin{itemize}
+	\item Backend: Ruby on Rails;
+	\item Frontend: HTML, Javascript, SAAS e CSS.
+\end{itemize}
+
+\begin{large}\textbf{Signin e signout}\\\end{large}
+Per la registrazione e l'accesso ai servizi sono state usate le seguenti gemme:
+\begin{itemize}
+	\item Locale: gemma \href{https://github.com/plataformatec/devise}{\textbf{devise}};
+	\item Google: gemma \href{https://github.com/zquestz/omniauth-google-oauth2}{\textbf{omniauth-google-oauth2}}.
+\end{itemize}
+
+\begin{large}\textbf{Informazioni meteo}\end{large}\\ 
+Attraverso la gemma \href{https://github.com/coderhs/ruby_open_weather_map}{\textbf{open-weather}}, possiamo cercare informazioni sul meteo per le città selezionate se è disponibile per il giorno della partenza.
+\\\\
+\begin{large}\textbf{Informazioni voli}\end{large}\\
+Per le informazioni sui voli, utilizziamo le \textbf{API REST} del servizio \href{https://aviation-edge.com/}{Aviation Edge}. Tramite questo sito è possibile consultare tutte le informazioni riguardanti gli aeroporti delle città selezionate e gli orari dei voli. Inoltre tramite apposito pulsante è possibile fare redirect al sito \href{https://www.skyscanner.it}{Skyscanner} con cui poter confrontare i prezzi e procedere all'acquisto tramite il loro portale.
+\\\\
+\begin{large}\textbf{Informazioni hotel e autonoleggio}\end{large}\\
+Per quanto riguarda questi due servizi, è implementato un redirect al sito \href{https://www.skyscanner.it}{Skyscanner} in cui poter confrontare prezzi e procedere all'acquisto, come accade per i voli.
+\\\\
+\begin{large}\textbf{Ruoli}\end{large}\\
+Per la distinzione dei vari servizi dedicati a specifici ruoli, abbiamo usato la gemma \href{https://github.com/RolifyCommunity/rolify}{\textbf{rolify}}. Le funzionalità assegnate ad ognuno di loro sono state illustrate nella precedente sezione \ref{roles}.
+\\\\
+\begin{large}\textbf{Realizzazione del frontend}\end{large}\\
+Il front-end è stato realizzato usando il framework \href{https://github.com/Dogfalo/materialize}{\textbf{Materialize}}. Esso si basa principalmente sul linguaggio CSS e sul link indicato è disponibile la documentazione completa.
+
+
 \section{Piano dei Test}
+
+\pagebreak
+
+
+\section{Mockup}
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Home-non-registrato} % adjust width
+	\caption{Schermata home quando non si è registrati}
+	\label{fig:homenotreg}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Home-registrato} % adjust width
+	\caption{Schermata home quando si è registrati}
+	\label{fig:homereg}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Accesso} % adjust width
+	\caption{Schermata per l'accesso}
+	\label{fig:accesso}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Registrazione} % adjust width
+	\caption{Schermata per la registrazione}
+	\label{fig:registrazione}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Profilo-utente} % adjust width
+	\caption{Schermata con le informazioni personali}
+	\label{fig:profiloutente}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Voli-registrato} % adjust width
+	\caption{Schermata per la scelta del volo}
+	\label{fig:voli}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Hotel-registrato} % adjust width
+	\caption{Schermata per la scelta dell'hotel}
+	\label{fig:hotel}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Auto-registrato} % adjust width
+	\caption{Schermata per la scelta del noleggio auto}
+	\label{fig:auto}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Contatti} % adjust width
+	\caption{Schermata con i contatti e le informazioni dello staff}
+	\label{fig:contatti}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./Mockup/Dashboard-admin} % adjust width
+	\caption{Schermata con la dashboard a disposizione per l'admin}
+	\label{fig:profiloadmin}
+\end{figure}
+
 
 \end{document}

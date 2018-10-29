@@ -251,7 +251,20 @@ $(document).ready(function() {
                 else {
                     jtext = JSON.parse(text);
                     tratta.innerHTML = "Tratta "+cittapartenza[cittapartenza.selectedIndex].text+"-"+cittaarrivo[cittaarrivo.selectedIndex].text;
-                    volidisponibili.innerHTML = text;
+                    var latitudine = JSON.stringify(jtext.geography.latitude); 
+                    var longitudine = JSON.stringify(jtext.geography.altitude); 
+                    var altitudine = JSON.stringify(jtext.geography.altitude);
+                    var velocita = JSON.stringify(jtext.speed.horizontal);
+                    var stato = JSON.stringify(jtext.status);
+                    stato = stato.substr(1, stato.length - 2);
+                    var compagnia = JSON.stringify(jtext.airline.icaoCode);
+                    compagnia = compagnia.substr(1, compagnia.length - 2);
+                    var codicevolo = JSON.stringify(jtext.flight.number);
+                    codicevolo = codicevolo.substr(1, codicevolo.length - 2);
+                    var infovolo = "<label style='font-size: 14pt; padding-bottom: 0;'>Volo:</label> Compagnia: "+compagnia+";<br/>Numero: "+codicevolo+";";
+                    var posizione = "<label style='font-size: 14pt; padding-bottom: 0;'>Posizione:</label> Latitudine: "+latitudine+";<br/> Longitudine: "+longitudine+";<br/> Altezza: "+altitudine+";<br/> Velocità: "+velocita+";";
+                    var statohtml = "<label style='font-size: 14pt; padding-bottom: 0;'>Stato:</label>"+stato;
+                    volidisponibili.innerHTML = infovolo+"<br/>"+posizione+"<br/>"+statohtml;
                 }
             }
         });
