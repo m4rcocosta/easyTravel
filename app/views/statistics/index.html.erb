@@ -54,22 +54,24 @@
   </table>
   
 	<% if current_user %>
-	<h1>Statistiche personali</h1>
-	<table class="highlight">
-		<thead>
-			<tr><th>#</th><th>Partenza</th><th>Meta</th><th>Conteggio Viaggi</th></tr>
-    </thead>
-    <tbody>
-    	<% @statistics.each do |statistic| %>
-					<tr>
-						<td><%= statistic.id %></td>
-						<td><%= statistic.partenza %></td>
-						<td><%= statistic.arrivo %></td>
-						<td><%= statistic.conteggio %></td>
-      		</tr>
-      <% end %>
-		</tbody>
-	</table>
+		<% if !current_user.has_role? :company_user %>
+			<h1>Statistiche personali</h1>
+			<table class="highlight">
+				<thead>
+					<tr><th>#</th><th>Partenza</th><th>Meta</th><th>Conteggio Viaggi</th></tr>
+    		</thead>
+    		<tbody>
+    			<% @statistics.each do |statistic| %>
+							<tr>
+								<td><%= statistic.id %></td>
+								<td><%= statistic.partenza %></td>
+								<td><%= statistic.arrivo %></td>
+								<td><%= statistic.conteggio %></td>
+      				</tr>
+      		<% end %>
+				</tbody>
+			</table>
+		<% end %>
 	<% end %>
 	</div>
 </body>
