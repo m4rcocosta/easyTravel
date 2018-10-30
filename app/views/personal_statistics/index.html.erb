@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Personal Statistics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Conteggio</th>
+      <th>Partenza</th>
+      <th>Arrivo</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personal_statistics.each do |personal_statistic| %>
+      <tr>
+        <td><%= personal_statistic.conteggio %></td>
+        <td><%= personal_statistic.partenza %></td>
+        <td><%= personal_statistic.arrivo %></td>
+        <td><%= personal_statistic.email %></td>
+        <td><%= link_to 'Show', personal_statistic %></td>
+        <td><%= link_to 'Edit', edit_personal_statistic_path(personal_statistic) %></td>
+        <td><%= link_to 'Destroy', personal_statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Personal Statistic', new_personal_statistic_path %>

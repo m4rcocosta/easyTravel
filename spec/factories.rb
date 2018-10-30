@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :personal_statistic do
+    conteggio { 1 }
+    partenza { "MyString" }
+    arrivo { "MyString" }
+    email { "MyString" }
+  end
     factory :user do
       email                 { Faker::Internet.email}
       password              "password1234"

@@ -52,7 +52,10 @@
       <% end %>
 		</tbody>
   </table>
-  
+	
+	<!-- //TODO Aggiungere visualizzazione utente connesso => corrispondenza con la mail.
+				Nel ciclo each-do aggiugnere una verifica per l indirizzo mail (vanno stampate solo le query con mail corrispondente) -->
+
 	<% if current_user %>
 		<% if !current_user.has_role? :company_user %>
 			<h1>Statistiche personali</h1>
@@ -61,12 +64,12 @@
 					<tr><th>#</th><th>Partenza</th><th>Meta</th><th>Conteggio Viaggi</th></tr>
     		</thead>
     		<tbody>
-    			<% @statistics.each do |statistic| %>
+    			<% @personal_statistics.each do |personal_statistic| %>
 							<tr>
-								<td><%= statistic.id %></td>
-								<td><%= statistic.partenza %></td>
-								<td><%= statistic.arrivo %></td>
-								<td><%= statistic.conteggio %></td>
+								<td><%= personal_statistic.id %></td>
+								<td><%= personal_statistic.partenza %></td>
+								<td><%= personal_statistic.arrivo %></td>
+								<td><%= personal_statistic.conteggio %></td>
       				</tr>
       		<% end %>
 				</tbody>

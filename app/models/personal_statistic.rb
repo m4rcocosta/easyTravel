@@ -1,0 +1,2 @@
+class PersonalStatistic < ApplicationRecord
+end

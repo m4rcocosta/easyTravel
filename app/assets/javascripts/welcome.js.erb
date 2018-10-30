@@ -88,6 +88,21 @@ $(document).ready(function() {
             }
         });
 
+        // Aggiungere un if-case, questa richiesta ajax va
+        // eseguita solamente se un utente è connesso (registrato, aziendale o entrambi?)
+
+        $.ajax ({
+                url: "http://localhost:3000/personal_statistics",
+                type: "POST",
+                data: {
+                    partenza: cittapartenza[cittapartenza.selectedIndex].label,
+                    arrivo: cittaarrivo[cittaarrivo.selectedIndex].label
+                    //TODO Aggiungere invio dell email utente connesso
+                    //pattern => email: EMAIL_QUI
+                }
+        });
+
+
         var passeggeri = document.getElementById("passeggeri").textContent;
         var link = "https://www.skyscanner.it/trasporti/voli/"+cittapartenza.value+"/"+cittaarrivo.value+"/"+dataandata+"/"+dataritorno+"?adults="+passeggeri+"&children=0&adultsv2="+passeggeri+"&childrenv2=&infants=0&cabinclass=economy&rtn="+rtn+"&preferdirects=true&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results"
         window.open(link, "_blank");
