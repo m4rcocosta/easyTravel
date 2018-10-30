@@ -41,29 +41,12 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
-When /^(?:|I )go to (.+)$/ do |page_name|
-  visit path_to(page_name)
-end
-
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
-end
-
-When /^(?:|I )click on "EMAIL1"$/ do
-   find(:xpath, "//a/img[@alt='EMAIL1']/..").click
-end
-
-And /^(?:|I )click on "Sign in with Google"$/ do
-   find(:xpath, "//a/img[@alt='Sign in with Google']/..").click
-   visit "/users/auth/google_oauth2"
-end
-
-And /^I confirm "([^"]*)"$/ do |button|
-  click_button(button)
 end
 
 And /^select box "([^"]*)" is selected with "([^"]*)"$/ do |dropdown, selected_text|
@@ -82,16 +65,6 @@ Given /^I am a registered user$/ do
   @user = User.create!({:uid => 1, :email => "antonini.andrealuca@gmail.com", :password => "10101010", :password_confirmation => "10101010", :roletype => true })
   @user.remove_role(:user)
   @user.add_role(:admin)
-end
-
-Given /^I am a company user$/ do
-  @user = User.create!({:uid => 1, :email => "antonini@gmail.com", :password => "123456", :password_confirmation => "123456", :roletype => true })
-  @user.remove_role(:user)
-  @user.add_role(:admin)
-end
-
-When /^I sign in with Google_oauth2 provider$/ do
-  visit "/users/auth/google_oauth2"
 end
 
 Given /^I am on the sign up page$/ do
@@ -118,11 +91,6 @@ And /^I am on my profile page$/ do
    visit edit_user_registration_path
 end
 
-Then /^I should be on the mail page$/ do
-  get :redirecting_action
-  response.should redirect_to('mailto:costa.1691388@studenti.uniroma1.it')
-end
-
 When /^I log in$/ do
   steps %Q{
     Given I am on the login page
@@ -133,10 +101,6 @@ When /^I log in$/ do
     And I should see "Statistiche"
     And I should see "Esci"
   }
-end
-
-Given /^I am not logged in$/ do
-   @user = nil
 end
 
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
@@ -153,16 +117,6 @@ end
 
 Then /^I should be on the home page$/ do
    visit root_path
-end
-
-When /^(?:|I )fill in the following:$/ do |fields|
-  fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
-  end
-end
-
-Then /^I should be redirected on Skyscanner results for car$/ do
-  visit 'https://www.skyscanner.it/autonoleggio/risultati/*'
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
