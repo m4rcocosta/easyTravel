@@ -74,12 +74,14 @@
 
         <div style="clear:both;"></div>
 
-        <div>
-            <label>Tracker voli:</label><br/>
-            <label style="font-size: 16pt;" id="tratta"></label>
-            <label style="font-size: 12pt" id="voliDisponibili"></label>
-            <%= link_to "Verifica voli", "javascript:void(0)", id: "infovoli", style: "size: 20;", class: "btn waves-effect waves-light hoverable" %>
-        </div>
+        <% if current_user %>
+            <div>
+                <label>Tracker voli:</label><br/>
+                <label style="font-size: 16pt;" id="tratta"></label>
+                <label style="font-size: 12pt" id="voliDisponibili"></label>
+                <%= link_to "Verifica voli", "javascript:void(0)", id: "infovoli", style: "size: 20;", class: "btn waves-effect waves-light hoverable" %>
+            </div>
+        <% end %>
 
     </div>
     
