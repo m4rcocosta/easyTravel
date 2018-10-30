@@ -13,7 +13,6 @@ class PersonalStatisticsController < ApplicationController
   # GET /personal_statistics.json
   def index
     @personal_statistics = PersonalStatistic.all
-    @statistics = Statistic.all
     render :template => "/statistics/index"
   end
 

@@ -88,19 +88,18 @@ $(document).ready(function() {
             }
         });
 
-        // Aggiungere un if-case, questa richiesta ajax va
-        // eseguita solamente se un utente è connesso (registrato, aziendale o entrambi?)
-
-        $.ajax ({
+        
+        if(user_email != "guest") {
+            $.ajax ({
                 url: "http://localhost:3000/personal_statistics",
                 type: "POST",
                 data: {
                     partenza: cittapartenza[cittapartenza.selectedIndex].label,
-                    arrivo: cittaarrivo[cittaarrivo.selectedIndex].label
-                    //TODO Aggiungere invio dell email utente connesso
-                    //pattern => email: EMAIL_QUI
+                    arrivo: cittaarrivo[cittaarrivo.selectedIndex].label,
+                    email: user_email
                 }
-        });
+            });
+        }
 
 
         var passeggeri = document.getElementById("passeggeri").textContent;
@@ -169,77 +168,82 @@ $(document).ready(function() {
         cittaconsegna.value = cittaconsegna[cittaritiro.selectedIndex].value;
     });
 
-    //Meteo
-    $("#cittaArrivo").on("change", function() {
-        var cittaarrivo = document.getElementById("cittaArrivo");
-        var idmeteo = cittaarrivo[cittaarrivo.selectedIndex].id;
-        $.ajax ({
-            url: "http://api.openweathermap.org/data/2.5/weather?id="+idmeteo+"&APPID="+openweatherkey+"&units=metric&lang=IT",
-            dataType: "json",
+    //Meteo e informazioni aeroporto città arrivo
+    if(user_email != "guest") {
+        $("#cittaArrivo").on("change", function() {
+            var cittaarrivo = document.getElementById("cittaArrivo");
+            var idmeteo = cittaarrivo[cittaarrivo.selectedIndex].id;
+            $.ajax ({
+                url: "http://api.openweathermap.org/data/2.5/weather?id="+idmeteo+"&APPID="+openweatherkey+"&units=metric&lang=IT",
+                dataType: "json",
 
-            success: function (data) {
-                var citta = data["name"];
-                var nazione = data["sys"]["country"];
-                var main = data["main"];
-                var temperatura = JSON.stringify(main["temp"])+"°";
-                var min = JSON.stringify(main["temp_min"])+"°";
-                var max = JSON.stringify(main["temp_max"])+"°";
-                var pressione = JSON.stringify(main["pressure"]);
-                var umidita = JSON.stringify(main["humidity"]);
-                var weather = JSON.stringify(data["weather"]).split(",");
-                var descrizioni = weather[2].split(":");
-                var descrizione = descrizioni[1];
-                descrizione = descrizione.substr(1, descrizione.length - 2);
-                $("#nomeCittaArrivo").html(citta+", "+nazione);
-                $("#meteoCittaArrivo").html(temperatura);
-                $("#descrizioneCittaArrivo").text(descrizione);
-            }
-        });
-
-        var infoarrivo = document.getElementById("infoArrivo");
-        var iataairport = cittaarrivo[cittaarrivo.selectedIndex].value;
-        $.ajax ({
-            url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
-            
-            success: function (data) {
-                if(data == '{"error": {"text": "No Record Found" }}') infoarrivo.innerHTML = "Informazioni non disponibili!";
-                else {
-                    text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
-                    var jtext = JSON.parse(text); //Converto la stringa in JSON
-                    infoarrivo.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
-                        +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
+                success: function (data) {
+                    var citta = data["name"];
+                    var nazione = data["sys"]["country"];
+                    var main = data["main"];
+                    var temperatura = JSON.stringify(main["temp"])+"°";
+                    var min = JSON.stringify(main["temp_min"])+"°";
+                    var max = JSON.stringify(main["temp_max"])+"°";
+                    var pressione = JSON.stringify(main["pressure"]);
+                    var umidita = JSON.stringify(main["humidity"]);
+                    var weather = JSON.stringify(data["weather"]).split(",");
+                    var descrizioni = weather[2].split(":");
+                    var descrizione = descrizioni[1];
+                    descrizione = descrizione.substr(1, descrizione.length - 2);
+                    $("#nomeCittaArrivo").html(citta+", "+nazione);
+                    $("#meteoCittaArrivo").html(temperatura);
+                    $("#descrizioneCittaArrivo").text(descrizione);
                 }
-            }
-        });
+            });
 
-    });
-
-    $("#cittaPartenza").on("change", function() {
-        var infopartenza = document.getElementById("infoPartenza");
-        var cittapartenza = document.getElementById("cittaPartenza");
-        var iataairport = cittapartenza[cittapartenza.selectedIndex].value;
-        var text, jtext, id, nome, time, gtm, nazione, na;
-        $.ajax ({
-            url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
+            var infoarrivo = document.getElementById("infoArrivo");
+            var iataairport = cittaarrivo[cittaarrivo.selectedIndex].value;
+            $.ajax ({
+                url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
             
-            success: function (data) {
-                if(data == '{"error": {"text": "No Record Found" }}') infoarrivo.innerHTML = "Informazioni non disponibili!";
-                else {
-                    text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
-                    jtext = JSON.parse(text); //Converto la stringa in JSON
-                    id = jtext.airportId;
-                    nome = jtext.nameAirport;
-                    time = jtext.timezone;
-                    gtm = jtext.GMT;
-                    nazione = jtext.nameCountry;
-                    na = jtext.codeIso2Country;
-                    infopartenza.innerHTML = "ID aeroporto: "+id+"<br/>Nome aeroporto: "+nome+"<br/>Timezone: "
-                        +time+"<br/>GMT: "+gtm+"<br/>Nazione: "+nazione+" ("+na+")";
+                success: function (data) {
+                    if(data == '{"error": {"text": "No Record Found" }}') infoarrivo.innerHTML = "Informazioni non disponibili!";
+                    else {
+                        text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
+                        var jtext = JSON.parse(text); //Converto la stringa in JSON
+                        infoarrivo.innerHTML = "ID aeroporto: "+jtext.airportId+"<br/>Nome aeroporto: "+jtext.nameAirport+"<br/>Timezone: "
+                            +jtext.timezone+"<br/>GMT: "+jtext.GMT+"<br/>Nazione: "+jtext.nameCountry+" ("+jtext.codeIso2Country+")";
+                    }
                 }
-            }
+            });
         });
-    });
+    }
 
+    // Informazioni aeroporto città partenza
+    if(user_email != "guest") {
+        $("#cittaPartenza").on("change", function() {
+            var infopartenza = document.getElementById("infoPartenza");
+            var cittapartenza = document.getElementById("cittaPartenza");
+            var iataairport = cittapartenza[cittapartenza.selectedIndex].value;
+            var text, jtext, id, nome, time, gtm, nazione, na;
+            $.ajax ({
+                url: "https://aviation-edge.com/v2/public/airportDatabase?key="+aviationedgekey+"&codeIataAirport="+iataairport,
+            
+                success: function (data) {
+                    if(data == '{"error": {"text": "No Record Found" }}') infoarrivo.innerHTML = "Informazioni non disponibili!";
+                    else {
+                        text = data.substr(2, data.length - 4); //Rendo la stringa compatobole con JSON
+                        jtext = JSON.parse(text); //Converto la stringa in JSON
+                        id = jtext.airportId;
+                        nome = jtext.nameAirport;
+                        time = jtext.timezone;
+                        gtm = jtext.GMT;
+                        nazione = jtext.nameCountry;
+                        na = jtext.codeIso2Country;
+                        infopartenza.innerHTML = "ID aeroporto: "+id+"<br/>Nome aeroporto: "+nome+"<br/>Timezone: "
+                            +time+"<br/>GMT: "+gtm+"<br/>Nazione: "+nazione+" ("+na+")";
+                    }
+                }
+            });
+        });
+    }
+
+    // Tracker voli
     $("#infovoli").on("click", function() {
         var cittapartenza = document.getElementById("cittaPartenza");
         var cittaarrivo = document.getElementById("cittaArrivo");

@@ -37,7 +37,7 @@
 	<div style="padding-left: 20px; padding-right: 20px;">
   <h1>Statistiche</h1>
   <strong class="StatisticDescription">Di seguito alcune statistiche riguardanti le rotte: il "Conteggio" esprime il numero di volte che è stata effettuata una ricerca per quella tratta. </strong>
-	<table class="highlight">
+	<table class="highlight statistic-table">
 		<thead>
 			<tr><th>#</th><th>Partenza</th><th>Meta</th><th>Conteggio Viaggi</th></tr>
     </thead>
@@ -59,18 +59,20 @@
 	<% if current_user %>
 		<% if !current_user.has_role? :company_user %>
 			<h1>Statistiche personali</h1>
-			<table class="highlight">
+			<table class="highlight statistic-table">
 				<thead>
 					<tr><th>#</th><th>Partenza</th><th>Meta</th><th>Conteggio Viaggi</th></tr>
     		</thead>
     		<tbody>
     			<% @personal_statistics.each do |personal_statistic| %>
+						<% if personal_statistic.email == current_user.email %>
 							<tr>
 								<td><%= personal_statistic.id %></td>
 								<td><%= personal_statistic.partenza %></td>
 								<td><%= personal_statistic.arrivo %></td>
 								<td><%= personal_statistic.conteggio %></td>
       				</tr>
+						<% end %>
       		<% end %>
 				</tbody>
 			</table>
