@@ -12,7 +12,7 @@ class PersonalStatisticsController < ApplicationController
   # GET /personal_statistics
   # GET /personal_statistics.json
   def index
-    @personal_statistics = PersonalStatistic.all
+    ##@personal_statistics = PersonalStatistic.all //doubled
     render :template => "/statistics/index"
   end
 
