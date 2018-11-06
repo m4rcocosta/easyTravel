@@ -32,7 +32,12 @@ città italiane e le principali città europee, dando informazioni sul meteo del
 \section{Link github e tracking degli sprint}
 
 Link github: \href{https://github.com/marcocosta96/easyTravel}{https://github.com/marcocosta96/easyTravel} \\
-Link degli sprint: \href{https://docs.google.com/spreadsheets/d/14VnUUgNbMTW1_EG6KlEAEggAsf6aBKnaC1etXz5ji0I/edit#gid=12}{clicca qui} (TODO) %todo
+Link degli sprint: \href{https://drive.google.com/file/d/1BjXiK_FXbeuqE82vYWBJEy_LuA97mgbx/view?usp=sharing}{https://drive.google.com/file/d/1BjXiK\_FXbeuqE82vYWBJEy\_LuA97mgbx/view?usp=sharing}
+\begin{figure}[!ht]
+	\includegraphics[width=1\textwidth]{./sprint} % adjust width
+	\caption{Sprint}
+	\label{fig:sprint}
+\end{figure}
 
 
 \section{Istruzioni per l'avvio}
@@ -75,19 +80,27 @@ Account di default:
 	\item As a REGISTERED USER I want to HAVE SETTINGS so that I can SET AN AVATAR;
 \end{enumerate}
 
+\subsection{Gestione Users OAuth}
+\begin{enumerate}
+	\item As a REGISTERED USER I want to HAVE SETTINGS so that I can DELETE MY ACCOUNT WITHOUT USE THE PASSWORD;
+	\item As a REGISTERED USER I want to HAVE SETTINGS so that I can SET AN AVATAR WITHOUT USE THE PASSWORD;
+\end{enumerate}
+
 \subsection{Unregistered User}
 \begin{enumerate}
 	\item As an UNREGISTERED USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE SCHEDULES and PRICES;
 	\item As an UNREGISTERED USER I want to SEE THE STATISTICS so that I can SEE THE GENERAL STATISTICS;
-	\item As an UNREGISTERED USER I want to SEE THE WEATHER OF THE ARRIVAL CITY so that I CAN PLAN BETTER MY TRIP;
 \end{enumerate}
 
 \subsection{Registered User}
 \begin{enumerate}
 	\item As a REGISTERED USER I want to RESEARCH FOR FLIGHTS so that I can COMPARE SCHEDULES and PRICES;
 	\item As a REGISTERED USER I want to SEE THE STATISTICS so that I can SEE THE GENERAL STATISTICS;
-	\item As a REGISTERED USER I want to see the weather of the arrival city so that I can PLAN BETTER MY TRIP;
-	\item As a REGISTERED USER I want to research for hotels in arrival city so that I can COMPARE PRICES;
+	\item As a REGISTERED USER I want to SEE THE WEATHER OF THE ARRIVAL CITY so that I can PLAN BETTER MY TRIP;
+	\item As a REGISTERED USER I want to RESEARCH FOR HOTELS IN ARRIVAL CITY so that I can COMPARE PRICES;
+	\item As a REGISTERED USER I want to HAVE INFORMATIONS ABOUT DEPARTURE AIRPORT so that I can PLAN BETTER MY TRIP;
+	\item As a REGISTERED USER I want to HAVE INFORMATIONS ABOUT ARRIVAL AIRPORT so that I can PLAN BETTER MY TRIP;
+	\item As a REGISTERED USER I want to TRACK A FLIGHT so that I can SEE WHERE IS THE PLANE;
 	\item As a REGISTERED USER I want to SEE THE STATISTICS so that I can SEE GENERAL STATISTICS;
 	\item As a REGISTERED USER I want to SEE THE STATISTICS so that I can SEE PERSONAL STATISTICS;
 \end{enumerate}
@@ -98,7 +111,9 @@ Account di default:
 	\item As a COMPANY USER I want to SEE THE STATISTICS so that I can SEE THE GENERAL STATISTICS;
 	\item As a COMPANY USER I want to SEE THE WEATHER OF THE ARRIVAL CITY so that I can PLAN BETTER MY TRIP;
 	\item As a COMPANY USER I want TO RESEARCH FOR HOTELS IN ARRIVAL CITY so that I can COMPARE PRICES;
-	\item As a COMPANY USER I want to SEE THE STATISTICS so that I can SEE GENERAL STATISTICS;
+	\item As a COMPANY USER I want to HAVE INFORMATIONS ABOUT DEPARTURE AIRPORT so that I can PLAN BETTER MY TRIP;
+	\item As a COMPANY USER I want to HAVE INFORMATIONS ABOUT ARRIVAL AIRPORT so that I can PLAN BETTER MY TRIP;
+	\item As a COMPANY USER I want to TRACK A FLIGHT so that I can SEE WHERE IS THE PLANE;
 	\item As a COMPANY USER I want to RESEARCH FOR CARS so that I can RENT A CAR;
 \end{enumerate}
 
@@ -106,6 +121,7 @@ Account di default:
 \begin{enumerate}
 	\item As an ADMIN I want to HAVE AN USER LIST so that I can CHECK THE USERS OF THE WEBSITE;
 	\item As an ADMIN I want to HAVE SPECIAL SETTINGS so that I can DELETE USERS;
+	\item As an ADMIN I want to HAVE ALL USERS FEATURES so that I can TEST THE SITE;
 \end{enumerate}
 
 \pagebreak
@@ -168,7 +184,12 @@ Il front-end è stato realizzato usando il framework \href{https://github.com/Do
 
 
 \section{Piano dei Test}
-
+Nelle cartelle features e spec risiedono i test da effettuare rispettivamente con Cucumber ed RSpec. I primi effettuano la "Validazione" di alcune user stories, mentre i secondi la "Verifica" di alcuni metodi del modello User.
+Per lanciare i test, i comandi da eseguire sono:
+\begin{enumerate}
+	\item Per eseguire i test con Cucumber, digitare sul terminale \begin{verbatim}rake cucumber\end{verbatim}
+	\item Per eseguire i test con RSpec, digitare sul terminale \begin{verbatim}rake spec\end{verbatim}
+\end{enumerate}
 \pagebreak
 
 

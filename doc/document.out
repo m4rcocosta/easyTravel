@@ -4,13 +4,14 @@
 \BOOKMARK [1][-]{section.4}{User stories}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{SIGNUP, LOGIN e LOGOUT}{section.4}% 5
 \BOOKMARK [2][-]{subsection.4.2}{Gestione Users}{section.4}% 6
-\BOOKMARK [2][-]{subsection.4.3}{Unregistered User}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.4}{Registered User}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.5}{Company User}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.6}{Admin}{section.4}% 10
-\BOOKMARK [1][-]{section.5}{Schema DB}{}% 11
-\BOOKMARK [1][-]{section.6}{Struttura controllo degli accessi}{}% 12
-\BOOKMARK [2][-]{subsection.6.1}{Ruoli e diritti di accesso alle funzionalit\340 disponibili}{section.6}% 13
-\BOOKMARK [1][-]{section.7}{Tecnologie utilizzate}{}% 14
-\BOOKMARK [1][-]{section.8}{Piano dei Test}{}% 15
-\BOOKMARK [1][-]{section.9}{Mockup}{}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Gestione Users OAuth}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Unregistered User}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.5}{Registered User}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.6}{Company User}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.7}{Admin}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Schema DB}{}% 12
+\BOOKMARK [1][-]{section.6}{Struttura controllo degli accessi}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{Ruoli e diritti di accesso alle funzionalit\340 disponibili}{section.6}% 14
+\BOOKMARK [1][-]{section.7}{Tecnologie utilizzate}{}% 15
+\BOOKMARK [1][-]{section.8}{Piano dei Test}{}% 16
+\BOOKMARK [1][-]{section.9}{Mockup}{}% 17
