@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  6 NOV 2018 01:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  6 NOV 2018 01:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,13 +601,8 @@ File: ./sprint.png Graphic file (type png)
 <use ./sprint.png>
 Package pdftex.def Info: ./sprint.png  used on input line 37.
 (pdftex.def)             Requested size: 360.0pt x 103.48619pt.
-
-Overfull \hbox (187.93372pt too wide) in paragraph at lines 34--41
-\T1/cmr/m/n/10.95 Link de-gli sprint: []https://drive.google.com/file/d/1BjXiK_
-FXbeuqE82vYWBJEy_LuA97mgbx/view?usp=sharing[]
- []
-
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 46.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [3 <./sprint.png>]
@@ -643,7 +638,7 @@ UT
  []
 
 [6] [7]
-<progetto.jpg, id=176, 462.22687pt x 340.27126pt>
+<progetto.jpg, id=177, 462.22687pt x 340.27126pt>
 File: progetto.jpg Graphic file (type jpg)
 <use progetto.jpg>
 Package pdftex.def Info: progetto.jpg  used on input line 131.
@@ -684,86 +679,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--184
  []
 
 [9] [10]
-<./Mockup/Home-non-registrato.png, id=202, 1204.5pt x 730.73pt>
+<./Mockup/Home-non-registrato.png, id=203, 1204.5pt x 730.73pt>
 File: ./Mockup/Home-non-registrato.png Graphic file (type png)
 <use ./Mockup/Home-non-registrato.png>
 Package pdftex.def Info: ./Mockup/Home-non-registrato.png  used on input line 1
 98.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Voli-user.png, id=204, 1204.5pt x 730.73pt>
+<./Mockup/Voli-user.png, id=205, 1204.5pt x 730.73pt>
 File: ./Mockup/Voli-user.png Graphic file (type png)
 <use ./Mockup/Voli-user.png>
 Package pdftex.def Info: ./Mockup/Voli-user.png  used on input line 204.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Voli-aziendale-admin.png, id=205, 1204.5pt x 730.73pt>
+<./Mockup/Voli-aziendale-admin.png, id=206, 1204.5pt x 730.73pt>
 File: ./Mockup/Voli-aziendale-admin.png Graphic file (type png)
 <use ./Mockup/Voli-aziendale-admin.png>
 Package pdftex.def Info: ./Mockup/Voli-aziendale-admin.png  used on input line 
 210.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Accesso.png, id=206, 1204.5pt x 730.73pt>
+<./Mockup/Accesso.png, id=207, 1204.5pt x 730.73pt>
 File: ./Mockup/Accesso.png Graphic file (type png)
 <use ./Mockup/Accesso.png>
 Package pdftex.def Info: ./Mockup/Accesso.png  used on input line 216.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Registrazione.png, id=207, 1204.5pt x 730.73pt>
+<./Mockup/Registrazione.png, id=208, 1204.5pt x 730.73pt>
 File: ./Mockup/Registrazione.png Graphic file (type png)
 <use ./Mockup/Registrazione.png>
 Package pdftex.def Info: ./Mockup/Registrazione.png  used on input line 222.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Profilo-user-aziendale.png, id=208, 1204.5pt x 803.0pt>
+<./Mockup/Profilo-user-aziendale.png, id=209, 1204.5pt x 803.0pt>
 File: ./Mockup/Profilo-user-aziendale.png Graphic file (type png)
 <use ./Mockup/Profilo-user-aziendale.png>
 Package pdftex.def Info: ./Mockup/Profilo-user-aziendale.png  used on input lin
 e 228.
 (pdftex.def)             Requested size: 360.0pt x 239.99515pt.
-<./Mockup/Hotel-user.png, id=209, 1204.5pt x 730.73pt>
+<./Mockup/Hotel-user.png, id=210, 1204.5pt x 730.73pt>
 File: ./Mockup/Hotel-user.png Graphic file (type png)
 <use ./Mockup/Hotel-user.png>
 Package pdftex.def Info: ./Mockup/Hotel-user.png  used on input line 234.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Hotel-aziendale-admin.png, id=210, 1204.5pt x 730.73pt>
+<./Mockup/Hotel-aziendale-admin.png, id=211, 1204.5pt x 730.73pt>
 File: ./Mockup/Hotel-aziendale-admin.png Graphic file (type png)
 <use ./Mockup/Hotel-aziendale-admin.png>
 Package pdftex.def Info: ./Mockup/Hotel-aziendale-admin.png  used on input line
  240.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Auto-aziendale-admin.png, id=211, 1204.5pt x 730.73pt>
+<./Mockup/Auto-aziendale-admin.png, id=212, 1204.5pt x 730.73pt>
 File: ./Mockup/Auto-aziendale-admin.png Graphic file (type png)
 <use ./Mockup/Auto-aziendale-admin.png>
 Package pdftex.def Info: ./Mockup/Auto-aziendale-admin.png  used on input line 
 246.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Contatti-non-registrato.png, id=212, 1204.5pt x 730.73pt>
+<./Mockup/Contatti-non-registrato.png, id=213, 1204.5pt x 730.73pt>
 File: ./Mockup/Contatti-non-registrato.png Graphic file (type png)
 <use ./Mockup/Contatti-non-registrato.png>
 Package pdftex.def Info: ./Mockup/Contatti-non-registrato.png  used on input li
 ne 252.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Contatti-registrato.png, id=213, 1204.5pt x 730.73pt>
+<./Mockup/Contatti-registrato.png, id=214, 1204.5pt x 730.73pt>
 File: ./Mockup/Contatti-registrato.png Graphic file (type png)
 <use ./Mockup/Contatti-registrato.png>
 Package pdftex.def Info: ./Mockup/Contatti-registrato.png  used on input line 2
 58.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Profilo-admin.png, id=214, 1204.5pt x 1027.84pt>
+<./Mockup/Profilo-admin.png, id=215, 1204.5pt x 1027.84pt>
 File: ./Mockup/Profilo-admin.png Graphic file (type png)
 <use ./Mockup/Profilo-admin.png>
 Package pdftex.def Info: ./Mockup/Profilo-admin.png  used on input line 264.
 (pdftex.def)             Requested size: 360.0pt x 307.19379pt.
-<./Mockup/Statistiche-non-registrato.png, id=215, 1204.5pt x 730.73pt>
+<./Mockup/Statistiche-non-registrato.png, id=216, 1204.5pt x 730.73pt>
 File: ./Mockup/Statistiche-non-registrato.png Graphic file (type png)
 <use ./Mockup/Statistiche-non-registrato.png>
 Package pdftex.def Info: ./Mockup/Statistiche-non-registrato.png  used on input
  line 270.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Statistiche-user-admin.png, id=216, 1204.5pt x 730.73pt>
+<./Mockup/Statistiche-user-admin.png, id=217, 1204.5pt x 730.73pt>
 File: ./Mockup/Statistiche-user-admin.png Graphic file (type png)
 <use ./Mockup/Statistiche-user-admin.png>
 Package pdftex.def Info: ./Mockup/Statistiche-user-admin.png  used on input lin
 e 276.
 (pdftex.def)             Requested size: 360.0pt x 218.39558pt.
-<./Mockup/Statistiche-aziendale.png, id=217, 1204.5pt x 730.73pt>
+<./Mockup/Statistiche-aziendale.png, id=218, 1204.5pt x 730.73pt>
 File: ./Mockup/Statistiche-aziendale.png Graphic file (type png)
 <use ./Mockup/Statistiche-aziendale.png>
 Package pdftex.def Info: ./Mockup/Statistiche-aziendale.png  used on input line
@@ -803,10 +798,10 @@ r/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr
 /share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/t
 ype1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super
 /sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on document.pdf (19 pages, 1534797 bytes).
+Output written on document.pdf (19 pages, 1534870 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 274 compressed objects within 3 object streams
+ 339 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
  98 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
